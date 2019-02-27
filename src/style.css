@@ -1,0 +1,20 @@
+.background {
+    text-align: center;
+    background-color: #001f36;
+}
+
+.img-background {
+    width: 350px;
+    height: 232px;
+    margin: 6px;
+}
+
+.display-type-class{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.pokemon-type{
+    margin: 10px;
+}

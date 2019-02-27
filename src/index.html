@@ -7,14 +7,40 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
+     <header>
       <h3 class="title-names-pokemon">Escolha o nome do Pokemon:</h3>
     </header>
     <main>
       <select id="names-pokemon" name="Nomes" onchange="selectedPokemon()"> </select>
+      
       <section id="get-pokemon"> </section>
+      
+      <select id="select-type">
+        <option value="none">Opção</option>
+        <option value="Grass">Grass (Planta)</option>
+        <option value="Fire">Fire (Fogo)</option>
+        <option value="Water">Water (Água)</option>
+        <option value="Bug">Bug (Inseto)</option>
+        <option value="Normal">Normal</option>
+        <option value="Poison">Poison (Venenoso)</option>
+        <option value="Electric">Electric (Elétrico)</option>
+        <option value="Ground">Ground (Terra)</option>
+        <option value="Fighting">Fighting (Lutador)</option>
+        <option value="Psychic">Psychic (Psíquico)</option>
+        <option value="Rock">Rock (Pedra)</option>
+        <option value="Flying">Flying (Voador)</option>
+        <option value="Ghost">Ghost (Fantasma)</option>
+        <option value="Ice">Ice (Gelo)</option>
+        <option value="Dragon">Dragon (Dragão)</option>
+        <option value="Steel">Steel (Metálico)</option>
+        <option value="Dark">Dark (Noturno)</option>
+        <option value="Fairy">Fairy (Fada)  </option>
+      </select>
+      
+      <section id="display-type" class="display-type-class"></section>
+      
     </main>
-    <script src="./data/pokemon/pokemon.js"></script> 
+    <script src="./data/pokemon/pokemon.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
