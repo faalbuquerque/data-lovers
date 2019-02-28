@@ -7,38 +7,33 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-     <header>
-      <h3 class="title-names-pokemon">Escolha o nome do Pokemon:</h3>
+    <header>
+      <h3> </h3>
     </header>
     <main>
-      <select id="names-pokemon" name="Nomes" onchange="selectedPokemon()"> </select>
-      
-      <section id="get-pokemon"> </section>
-      
-      <select id="select-type">
-        <option value="none">Opção</option>
-        <option value="Grass">Grass (Planta)</option>
-        <option value="Fire">Fire (Fogo)</option>
-        <option value="Water">Water (Água)</option>
-        <option value="Bug">Bug (Inseto)</option>
-        <option value="Normal">Normal</option>
-        <option value="Poison">Poison (Venenoso)</option>
-        <option value="Electric">Electric (Elétrico)</option>
-        <option value="Ground">Ground (Terra)</option>
-        <option value="Fighting">Fighting (Lutador)</option>
-        <option value="Psychic">Psychic (Psíquico)</option>
-        <option value="Rock">Rock (Pedra)</option>
-        <option value="Flying">Flying (Voador)</option>
-        <option value="Ghost">Ghost (Fantasma)</option>
-        <option value="Ice">Ice (Gelo)</option>
-        <option value="Dragon">Dragon (Dragão)</option>
-        <option value="Steel">Steel (Metálico)</option>
-        <option value="Dark">Dark (Noturno)</option>
-        <option value="Fairy">Fairy (Fada)  </option>
-      </select>
-      
-      <section id="display-type" class="display-type-class"></section>
-      
+      <section>
+        <p class="title-category-pokemon">Escolha o nome do Pokemon:</p>
+        <select id="names-pokemon" name="Nomes" onchange="selectedPokemon()"> 
+          <option value="">None</option>
+        </select>
+        <datalist id="get-pokemon"></datalist>
+      </section> 
+
+      <section>
+        <p class="title-category-pokemon">Escolha o tipo do Pokemon:</p>
+        <select id="select-type" name="Tipos">
+          <option value="">None</option>
+        </select>
+        <datalist id="display-type" class="display-type-class"></datalist>
+      </section>
+
+      <section>
+        <p class="title-category-pokemon">Filtre os pokémons que tem as seguintes fraquezas: </p>
+        <select id="select-weaknesses" name="Fraquezas">
+          <option value="">None</option>
+        </select>
+        <datalist id="display-weaknesses" class="display-type-class"></datalist>
+      </section>
     </main>
     <script src="./data/pokemon/pokemon.js"></script>
     <script src="main.js"></script>
