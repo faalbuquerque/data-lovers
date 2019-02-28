@@ -1,6 +1,8 @@
 window.onload= function(){
     showNamesPokemon()
     selectedPokemon()
+    showTypePokemon(selectType);
+    showTypePokemon(selectWeaknesses);
 }
 
 function getNamesPokemon(){
@@ -8,9 +10,8 @@ function getNamesPokemon(){
 }
 
 function showNamesPokemon(){
-
     let namesPokemon= document.getElementById("names-pokemon")
-    namesPokemon.innerHTML= `
+    namesPokemon.innerHTML += `
     ${getNamesPokemon().map((names)=> `
         <option value="${names['id']}" class="list-pokemon">
              ${names['name']}
@@ -18,7 +19,6 @@ function showNamesPokemon(){
     `).join("")}
    `
 }
-
 
 function selectedPokemon(){
     let pokemoneEl = document.getElementById("names-pokemon")
@@ -45,35 +45,72 @@ function selectedPokemon(){
             <p>Fraquezas: ${pokemon.weaknesses}</p>
             <p>Proxima evolucao: ${pokemon.next_evolution}</p>
         `).join("")}
-
-let selectType = document.getElementById("select-type");
-let displayType = document.getElementById("display-type");
-selectType.addEventListener("change", showTypePokemon);
-
-function showTypePokemon(){
-    let type = selectType.value;
-    displayType.innerHTML = "";
-    for (datas in POKEMON["pokemon"]){
-        for (i in POKEMON["pokemon"][datas]["type"]){
-            if (type === POKEMON["pokemon"][datas]["type"][i]){
-                mostrar();      
-            } 
-        }  
-    }      
+        `
 }
 
-function mostrar(){
-    displayType.innerHTML += `
-    <section class="pokemons-type">
-        <div class="pokemon-type">
-            <img src="${POKEMON["pokemon"][datas]["img"]}" class="poke-photo" />   
-            <div class="text-name">
-                <h3 class="poke-name">${POKEMON["pokemon"][datas]["name"]}</h3>
-            </div>
-            <div class="text-type">
-                <p class="poke-type"> Tipo: ${POKEMON["pokemon"][datas]["type"].join(", ")}</p>
-            </div>
-        </div> 
-    </section>        
-    `
+let selectType = document.querySelector("#select-type");
+let displayType = document.querySelector("#display-type");
+let selectWeaknesses = document.querySelector("#select-weaknesses");
+let displayWeaknesses = document.querySelector("#display-weaknesses");
+let arrayTypes = ["Grass", "Fire", "Water", "Bug", "Normal", "Poison", "Electric", "Ground", "Fighting", "Psychic", "Rock", "Flying", "Ghost", "Ice", "Dragon", "Steel", "Dark", "Fairy"];
+
+function showTypePokemon(category){
+    for(i in arrayTypes){
+        category.innerHTML += `
+            <option value="${arrayTypes[i]}" class="list-pokemon">
+             ${arrayTypes[i]}
+            </option>    
+        `
+    }
+}
+
+selectType.addEventListener("change", () => {
+selectedPokemonFrom('type', selectType, displayType);
+});
+
+selectWeaknesses.addEventListener("change", () => {
+selectedPokemonFrom('weaknesses', selectWeaknesses, displayWeaknesses);
+});
+
+function selectedPokemonFrom(categorySelect, dataSelect, displayTag){
+    displayTag.innerHTML = "";
+    let pokemonsFromType = POKEMON.pokemon.filter(
+        (pokemon) => {
+            let typeFilter = pokemon[categorySelect].filter(
+                (type) => {
+                    return type === dataSelect.value;
+                }
+            );
+            if(typeFilter.length > 0){
+                showPokemon(pokemon, displayTag);
+                return true;
+            }
+        }
+    );
+    if (pokemonsFromType.length === 0) {
+        displayTag.innerHTML += `
+        <p> Nenhum pokémon encontrado </p>
+        `
+    }
+}
+
+
+function showPokemon(pokemon, tagById){
+    let nextEvolution = pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : 'Sem evolução';
+
+    tagById.innerHTML += `
+                <section class="pokemons-type">
+                    <div class="pokemon-type">
+                        <img src="${pokemon.img}" class="poke-photo" />   
+                        <div class="text-name">
+                            <h3 class="poke-name">${pokemon.name}</h3>
+                        </div>
+                        <div class="text-type">
+                            <p class="poke-type"> Tipo: ${pokemon.type.join(", ")}</p>
+                            <p> Fraquezas: ${pokemon.weaknesses.join(", ")}</p>
+                            <p> Próxima(s) Evolução(ões): ${nextEvolution}</p>
+                        </div>
+                    </div> 
+                </section>        
+                `
 }
