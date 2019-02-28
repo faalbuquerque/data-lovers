@@ -1,6 +1,5 @@
 window.onload= function(){
     showNamesPokemon()
-    selectedPokemon()
 }
 
 function getNamesPokemon(){
@@ -8,7 +7,6 @@ function getNamesPokemon(){
 }
 
 function showNamesPokemon(){
-
     let namesPokemon= document.getElementById("names-pokemon")
     namesPokemon.innerHTML= `
     ${getNamesPokemon().map((names)=> `
@@ -18,7 +16,6 @@ function showNamesPokemon(){
     `).join("")}
    `
 }
-
 
 function selectedPokemon(){
     let pokemoneEl = document.getElementById("names-pokemon")
@@ -45,6 +42,8 @@ function selectedPokemon(){
             <p>Fraquezas: ${pokemon.weaknesses}</p>
             <p>Proxima evolucao: ${pokemon.next_evolution}</p>
         `).join("")}
+    `
+}
 
 let selectType = document.getElementById("select-type");
 let displayType = document.getElementById("display-type");
@@ -74,6 +73,6 @@ function mostrar(){
                 <p class="poke-type"> Tipo: ${POKEMON["pokemon"][datas]["type"].join(", ")}</p>
             </div>
         </div> 
-    </section>        
-    `
+    </section>
+`
 }
