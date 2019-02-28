@@ -1,11 +1,8 @@
 window.onload= function(){
     showNamesPokemon()
-<<<<<<< HEAD
-=======
     selectedPokemon()
     showTypePokemon(selectType);
     showTypePokemon(selectWeaknesses);
->>>>>>> eec4bb4b90adc45562357fdea295c24d039fb20a
 }
 
 function getNamesPokemon(){
@@ -14,17 +11,13 @@ function getNamesPokemon(){
 
 function showNamesPokemon(){
     let namesPokemon= document.getElementById("names-pokemon")
-<<<<<<< HEAD
     namesPokemon.innerHTML+= `
-=======
     namesPokemon.innerHTML += `
->>>>>>> eec4bb4b90adc45562357fdea295c24d039fb20a
     ${getNamesPokemon().map((names)=> `
         <option value="${names['id']}" class="list-pokemon">
              ${names['name']}
         </option>
     `).join("")}
-   `
 }
 
 function selectedPokemon(){
@@ -52,11 +45,7 @@ function selectedPokemon(){
             <p>Fraquezas: ${pokemon.weaknesses}</p>
             <p>Proxima evolucao: ${pokemon.next_evolution}</p>
         `).join("")}
-<<<<<<< HEAD
     `
-}
-=======
-        `
 }
 
 let selectType = document.querySelector("#select-type");
@@ -78,7 +67,6 @@ function showTypePokemon(category){
 selectType.addEventListener("change", () => {
 selectedPokemonFrom('type', selectType, displayType);
 });
->>>>>>> eec4bb4b90adc45562357fdea295c24d039fb20a
 
 selectWeaknesses.addEventListener("change", () => {
 selectedPokemonFrom('weaknesses', selectWeaknesses, displayWeaknesses);
@@ -106,7 +94,6 @@ function selectedPokemonFrom(categorySelect, dataSelect, displayTag){
     }
 }
 
-<<<<<<< HEAD
 function mostrar(){
     displayType.innerHTML += `
     <section class="pokemons-type">
@@ -149,7 +136,6 @@ function orderNome() {
        list.innerHTML= listChildren.map(item => `<p>${item}</p>`).join('');
   }
 */
-=======
 
 function showPokemon(pokemon, tagById){
     let nextEvolution = pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : 'Sem evolução';
@@ -170,4 +156,3 @@ function showPokemon(pokemon, tagById){
                 </section>        
                 `
 }
->>>>>>> eec4bb4b90adc45562357fdea295c24d039fb20a
