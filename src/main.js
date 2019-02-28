@@ -8,7 +8,7 @@ function getNamesPokemon(){
 
 function showNamesPokemon(){
     let namesPokemon= document.getElementById("names-pokemon")
-    namesPokemon.innerHTML= `
+    namesPokemon.innerHTML+= `
     ${getNamesPokemon().map((names)=> `
         <option value="${names['id']}" class="list-pokemon">
              ${names['name']}
@@ -18,14 +18,14 @@ function showNamesPokemon(){
 }
 
 function selectedPokemon(){
-    let pokemoneEl = document.getElementById("names-pokemon")
-    let pokemonId = pokemoneEl.options[pokemoneEl.selectedIndex].value;
+    let pokemoneEl= document.getElementById("names-pokemon")
+    let pokemonId= pokemoneEl.options[pokemoneEl.selectedIndex].value
   
-    let result = POKEMON['pokemon'].filter(pokemon => pokemon.id == pokemonId);
+    let result= POKEMON['pokemon'].filter(pokemon => pokemon.id == pokemonId)
 
-    let showPokemon = document.getElementById('get-pokemon');
-    showPokemon.innerHTML = ''
-    showPokemon.innerHTML += `
+    let showPokemon= document.getElementById('get-pokemon')
+    showPokemon.innerHTML= ''
+    showPokemon.innerHTML+= `
         ${result.map( pokemon => `
             <p>Nome: ${pokemon.name}</p>
             <img src="${pokemon.img}">
@@ -76,3 +76,30 @@ function mostrar(){
     </section>
 `
 }
+
+function orderNome(){
+
+    let teste= getNamesPokemon().value
+
+    const list= document.querySelector(".list-pokemon")
+    orderArray.sort(function(a,b) {
+        if ( a.name < b.name )
+            return -1;
+        if ( a.name > b.name )
+            return 1;
+        return 0;
+    } );  
+    
+    console.log(teste)
+}
+
+
+/*
+function orderNome() {
+    const list= document.querySelector(".list-pokemon");
+    const listChildren= [...list.children]
+        .map(item => item.textContent).sort();
+
+       list.innerHTML= listChildren.map(item => `<p>${item}</p>`).join('');
+  }
+*/

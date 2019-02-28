@@ -8,12 +8,15 @@
   </head>
   <body>
      <header>
-      <h3 class="title-names-pokemon">Escolha o nome do Pokemon:</h3>
+      <h1 class="title-pokemon">Pokemon</h1>
     </header>
-    <main>
-      <select id="names-pokemon" name="Nomes" onchange="selectedPokemon()"> </select>
-      
-      <section id="get-pokemon"> </section>
+    <main class="corpo">
+
+      <select id="names-pokemon" name="Nomes" onchange="selectedPokemon()"> 
+        <option value="">Nomes</option>
+      </select>
+      <button class="btn-order" type="button" onClick="orderNome()">Ordenar</button>
+      <section id="get-pokemon"></section>
       
       <select id="select-type">
         <option value="none">Opção</option>
@@ -38,7 +41,7 @@
       </select>
       
       <section id="display-type" class="display-type-class"></section>
-      
+  
     </main>
     <script src="./data/pokemon/pokemon.js"></script>
     <script src="main.js"></script>

@@ -1,20 +1,50 @@
-.background {
+body{
+    margin: 0;
+}
+
+.title-pokemon{
+    margin: 0;
+    padding: 1%;
     text-align: center;
-    background-color: #001f36;
+    color: white; 
+    font-size: 40px;
+    font-family: Montserrat;
+    background-color: #448acb;
+	text-transform: uppercase;	
 }
 
-.img-background {
-    width: 350px;
-    height: 232px;
-    margin: 6px;
+#names-pokemon, #select-type{
+    border: solid 2px #146bed;
+    flex-direction: row
 }
 
-.display-type-class{
+.btn-order{
+    border-radius: 5px;
+    padding: 8px;
+    width: 70px;
+    background-color:#448acb;
+    border: none;
+    color: white;
+    outline: none; 
+}
+
+.btn-order:hover{
+    border: #146bed;
+    border-radius: 8px;
+    color: wheat;
+}
+
+.corpo{
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    align-content: center;
+    
 }
 
-.pokemon-type{
-    margin: 10px;
+#get-pokemon{
+    border: solid 2px #146bed;
+    padding: 10px;
+    text-align: center;
 }
