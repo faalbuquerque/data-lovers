@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+<<<<<<< HEAD
      <header>
       <h1 class="title-pokemon">Pokemon</h1>
     </header>
@@ -42,6 +43,35 @@
       
       <section id="display-type" class="display-type-class"></section>
   
+=======
+    <header>
+      <h3> </h3>
+    </header>
+    <main>
+      <section>
+        <p class="title-category-pokemon">Escolha o nome do Pokemon:</p>
+        <select id="names-pokemon" name="Nomes" onchange="selectedPokemon()"> 
+          <option value="">None</option>
+        </select>
+        <datalist id="get-pokemon"></datalist>
+      </section> 
+
+      <section>
+        <p class="title-category-pokemon">Escolha o tipo do Pokemon:</p>
+        <select id="select-type" name="Tipos">
+          <option value="">None</option>
+        </select>
+        <datalist id="display-type" class="display-type-class"></datalist>
+      </section>
+
+      <section>
+        <p class="title-category-pokemon">Filtre os pokémons que tem as seguintes fraquezas: </p>
+        <select id="select-weaknesses" name="Fraquezas">
+          <option value="">None</option>
+        </select>
+        <datalist id="display-weaknesses" class="display-type-class"></datalist>
+      </section>
+>>>>>>> eec4bb4b90adc45562357fdea295c24d039fb20a
     </main>
     <script src="./data/pokemon/pokemon.js"></script>
     <script src="main.js"></script>
