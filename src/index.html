@@ -13,26 +13,26 @@
     <main>
       <section>
         <p class="title-category-pokemon">Escolha o nome do Pokemon:</p>
-        <select id="names-pokemon" name="Nomes" onchange="selectedPokemon()"> 
+        <select id="names-pokemon" onchange="selectedPokemon()"> 
           <option value="">None</option>
         </select>
-        <datalist id="get-pokemon"></datalist>
+        <p id="get-pokemon" ></p>
       </section> 
 
       <section>
         <p class="title-category-pokemon">Escolha o tipo do Pokemon:</p>
-        <select id="select-type" name="Tipos">
+        <select id="select-type">
           <option value="">None</option>
         </select>
-        <datalist id="display-type" class="display-type-class"></datalist>
+        <p id="display-type" class="display-type-class"></p>
       </section>
 
       <section>
-        <p class="title-category-pokemon">Filtre os pokémons que tem as seguintes fraquezas: </p>
-        <select id="select-weaknesses" name="Fraquezas">
+        <p class="title-category-pokemon"> Mostrar quais os pokémons são fracos contra: </p>
+        <select id="select-weaknesses">
           <option value="">None</option>
         </select>
-        <datalist id="display-weaknesses" class="display-type-class"></datalist>
+        <p id="display-weaknesses" class="display-type-class"></p>
       </section>
     </main>
     <script src="./data/pokemon/pokemon.js"></script>
