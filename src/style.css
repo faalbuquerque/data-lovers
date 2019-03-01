@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 *{
     margin: 0;
     padding: 0; 
@@ -120,8 +119,8 @@
 .button-style:hover{
     border-radius: 8px;
     color: #ffcb08;
-=======
+}
+
 .display-type-class {
     display: flex;
->>>>>>> ede638a2994803810e98f8fc5be804f66904cb4d
 }

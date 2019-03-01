@@ -46,10 +46,12 @@ function getOrderedPokemonByNames(){
 
 function showNamesPokemon(){
     let namesPokemon= document.getElementById("names-pokemon")
+
     namesPokemon.innerHTML += `
-    ${getNamesPokemon().map((names)=> `
-        <option value="${names['id']}" class="list-pokemon">
-             ${names['name']}
+    ${getOrderedPokemonByNames().map((pokemon)=> `
+        <option value="${pokemon['id']}" class="list-pokemon">
+             ${pokemon['name']}
+
         </option>
     `).join("")}
    `
@@ -62,7 +64,6 @@ function selectedPokemon(){
     let result = POKEMON['pokemon'].filter(pokemon => pokemon.id == pokemonId);
 
     let showPokemon = document.getElementById("display-name");
-    let showPokemon = document.getElementById('get-pokemon');
     showPokemon.innerHTML = ''
     showPokemon.innerHTML += `
         ${result.map( pokemon => `
@@ -150,5 +151,4 @@ function showPokemon(pokemon, tagById){
                     </div> 
                 </section>        
                 `
-}
 }
