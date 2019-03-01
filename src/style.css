@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0; 
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #2f6bb4;
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.background-top{
+    
+  
+    background-image: url("images/topo.png");
+    padding: 10%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+}
+
+.sections-box{
+    display: flex;
+    justify-content: center;
+    border: solid 2px #2f6bb4;
+    border-radius: 8px;
+    padding: 8px;
+    width: 25%;
+    flex-wrap: wrap;
+    text-align: center;
+    color: #2f6bb4;
+    font-weight: bold;
+    background-color: #ffcb08;
+}
+
+.style-select-box{
+    outline: none;
+    border: solid 10px #2f6bb4;
+    border-radius: 8px;
+    background-color: #2f6bb4;
+    color: #ffcb08;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    padding-left:20%;
+    
+}
+
+.sections-box img{
+    width: 25%;
+    height: 50%;
+    background-color: #ffcb08;
+}
+
+.text-select-box{
+    background-color: #ffcb08;
+    
+}
+
+.style-name{
+    background-color: #ffcb08;
+    color: #ffcb08;
+    text-align: center;
+    padding: 5px;
+    border-radius: 8px;
+    
+}
+
+.style-name img{
+    width: 60%;
+    height: 30%;
+    background-color: #ffcb08; 
+    margin-top: 2%
+   
+}
+
+.style-name p{
+    margin: 2%;
+    background-color: #ffcb08; 
+    color: #2f6bb4;
+}
+
+.style-pokemons{
+    background-color: #ffcb08;
+    color: #ffcb08;
+    text-align: center;
+    padding: 5px;
+    border-radius: 8px;
+
+}
+
+.style-pokemons img{
+    width: 60%;
+    height: 30%;
+    background-color: #ffcb08; 
+    margin-top: 2%
+   
+}
+
+.style-pokemons p{
+    margin: 2%;
+    background-color: #ffcb08; 
+    color: #2f6bb4;
+}
+
+.button-style{
+    border-radius: 15px;
+    padding: 8px;
+    width: 20%;
+    background-color:#ed1c24;
+    border: none;
+    color: white;
+    outline: none;   
+}
+
+.button-style:hover{
+    border-radius: 8px;
+    color: #ffcb08;
+}
+
+.display-type-class {
+    display: flex;
+}

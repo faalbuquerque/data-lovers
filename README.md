@@ -1,5 +1,24 @@
 # Data Lovers
 
+#Definição de Uuário
+Batalhas em Pokémon GO acontecem nos Ginásios. Não importa se você está tentando conquistar um ginásio inimigo ou apenas treinando em um ginásio aliado, ou até mesmo lutando em uma Raid. Você precisa saber do básico:
+Elas acontecem em tempo real, o que demanda bastante atenção e agilidade. Para lutar, basta tocar na tela de maneira rápida e seu Pokémon atacará, você precisa dar um slide para o lado para que seu Pokémon desvie dos ataques (direita e esquerda). Desviar é fácil de explicar, mas difícil de executar.
+Assim que você atacar diversas vezes tocando na tela, você notará que uma barra azul encherá logo abaixo do life do seu Pokémon, aquilo é o golpe especial dele. Ele é bem mais poderoso, mas você precisará segurar a tela para que o Pokémon use o ataque. Vale dizer que neste momento, você será incapaz de desviar dos golpes do inimigo. 
+#Escolhendo seu Pokémon
+Pokémon usa o famoso sistema de “pedra, papel e tesoura”, alguns tipos possuem vantagem sobre outros. Um exemplo básico é que água é mais forte contra fogo. Ao desafiar um ginásio, você poderá escolher seis pokémon para a luta. O jogo apontará 6 de cara, mas você pode alterar o time, basta tocar na figura de cada um deles e escolher o substituto.
+
+Porém, se você estiver treinando em um ginásio aliado (um ginásio que possui a mesma cor que seu time), você só poderá jogar com um Pokémon, então escolha o que consegue sofrer mais ataques (recomendamos Pokémon como Snorlax, Chansey e Vaporeon).
+
+Antes de começar, confira o tipo do Pokémon que está defendendo o Ginásio, confira o seu tipo e o tipo do ataque. Temos como exemplo uma imagem abaixo, mas criamos uma forma de filtrar esses dados de forma mais dinâmica.
+
+![img](src/images/type-pokemon.jpg)
+![img](src/images/legenda-type.jpg)
+
+As Batalhas Raid são a mais recente funcionalidade do Pokémon Go, funcionalidade essa que foi introduzida com o novo update chamado de Gym Rework.
+
+As Raids juntam os jogadores com o objetivo de derrotar pokémons poderosos com o nome de Raid Bosses - ganhando recompensas exclusivas - assim como a oportunidade de finalmente apanharem os novos Pokémons Lendários.
+
+
 ## Índice
 
 * [Preâmbulo](#preâmbulo)
