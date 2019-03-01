@@ -32,16 +32,26 @@ function hideScreenWeaknesses(){
 //Acaba aqui
 
 
-function getNamesPokemon(){
-    return POKEMON["pokemon"]
+function getOrderedPokemonByNames(){
+    return POKEMON.pokemon.sort((a, b) => {
+        if (a.name > b.name){
+            return 1;
+        }
+        if (a.name < b.name){
+            return -1;
+        }
+        return 0;
+    });
 }
 
 function showNamesPokemon(){
     let namesPokemon= document.getElementById("names-pokemon")
+
     namesPokemon.innerHTML += `
-    ${getNamesPokemon().map((names)=> `
-        <option value="${names['id']}" class="list-pokemon">
-             ${names['name']}
+    ${getOrderedPokemonByNames().map((pokemon)=> `
+        <option value="${pokemon['id']}" class="list-pokemon">
+             ${pokemon['name']}
+
         </option>
     `).join("")}
    `
@@ -54,6 +64,7 @@ function selectedPokemon(){
     let result = POKEMON['pokemon'].filter(pokemon => pokemon.id == pokemonId);
 
     let showPokemon = document.getElementById("display-name");
+
     showPokemon.innerHTML = ''
     showPokemon.innerHTML += `
         ${result.map( pokemon => `
@@ -80,6 +91,8 @@ let displayType = document.querySelector("#display-type");
 let selectWeaknesses = document.querySelector("#select-weaknesses");
 let displayWeaknesses = document.querySelector("#display-weaknesses");
 let arrayTypes = ["Grass", "Fire", "Water", "Bug", "Normal", "Poison", "Electric", "Ground", "Fighting", "Psychic", "Rock", "Flying", "Ghost", "Ice", "Dragon", "Steel", "Dark", "Fairy"];
+arrayTypes.sort();
+
 
 function showTypePokemon(category){
     for(i in arrayTypes){
