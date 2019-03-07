@@ -5,6 +5,96 @@ window.onload= function(){
     showTypePokemon(selectWeaknesses)
 }
 
+//Parte do codigo para esconder as telas de acordo com o select, falta fazer os botoes!
+let selectType = document.querySelector("#select-type")
+let displayType = document.querySelector("#display-type")
+let selectWeaknesses = document.querySelector("#select-weaknesses")
+let displayWeaknesses = document.querySelector("#display-weaknesses")
+let order = document.querySelector("#order")
+let orderWeak = document.querySelector("#order-weak")
+document.querySelector("#btn-exit-name").style.display = "none"
+document.querySelector("#btn-exit-weak").style.display = "none"
+
+function hideScreenName(){
+    document.querySelector("#section-types").style.display = "none"
+    document.querySelector("#section-weaknesses").style.display = "none"
+    document.querySelector(".imagem-box").style.display = "none"
+    document.querySelector(".text-select-box").style.display = "none"
+    document.querySelector("#btn-exit-name").style.display = "block"
+}
+
+function hideScreenType(){
+    document.querySelector("#show-type").classList.remove("hide")
+    document.querySelector("#order").classList.remove("hide")
+    document.querySelector("#img-type").classList.add("hide")   
+    document.querySelector("#text-type").classList.add("hide") 
+    document.querySelector("#section-names").classList.add("hide") 
+    document.querySelector("#section-weaknesses").classList.add("hide")   
+}
+
+function hideScreenWeaknesses(){
+    document.querySelector("#show-order-weak").classList.remove("hide")
+    document.querySelector("#order-weak").classList.remove("hide")
+    document.querySelector("#img-weaknesses").classList.add("hide")   
+    document.querySelector("#text-weaknesses").classList.add("hide") 
+    document.querySelector("#section-names").classList.add("hide")
+    document.querySelector("#section-types").classList.add("hide")
+    document.querySelector("#btn-exit-weak").style.display = "block"
+}
+//Acaba aqui
+
+/* versao com addEventListener
+
+document.querySelector("#btn-voltar").style.display = "none";
+
+let btnBack = document.getElementById("btn-voltar");
+btnBack.addEventListener("click", function(){
+    document.location.reload(true);
+    });
+   
+let hidenName= document.querySelector("#section-names")    
+hidenName.addEventListener("change", () => {
+    hideScreenName();
+    });
+
+function hideScreenName(){
+    hidenType.style.display = "none";
+    document.querySelector("#section-weaknesses").style.display = "none";
+    document.querySelector("#section-types").style.display = "none";
+    document.querySelector(".imagem-box-name").style.display = "none";
+    document.querySelector(".text-box-name").style.display = "none";
+    document.querySelector("#btn-voltar").style.display = "block";
+}
+
+
+let hidenType= document.querySelector("#select-type")
+hidenType.addEventListener("change", () => {
+    hideScreenType();
+    });
+    
+function hideScreenType(){
+    document.querySelector("#section-names").style.display = "none";
+    document.querySelector("#section-weaknesses").style.display = "none";
+    document.querySelector(".imagem-box-types").style.display = "none";
+    document.querySelector(".text-box-types").style.display = "none";
+    document.querySelector("#btn-voltar").style.display = "block";
+}
+
+
+let hidenWeaknesses= document.querySelector("#select-weaknesses")
+hidenWeaknesses.addEventListener("change", () => {
+    hideScreenType();
+    });
+
+function hideScreenWeaknesses(){
+    document.querySelector("#section-names").style.display = "none";
+    document.querySelector("#section-types").style.display = "none";
+    document.querySelector(".imagem-box").style.display = "none";
+    document.querySelector(".text-select-box").style.display = "none";
+    document.querySelector("#btn-voltar").style.display = "block";
+}
+*/
+
 function getOrderedPokemonByNames(){
     return POKEMON.pokemon.sort((a, b) => {
         if (a.name > b.name){
@@ -30,9 +120,7 @@ function showNamesPokemon(){
    `
 }
 
-
 function selectedPokemon(){
-
     let pokemoneEl = document.querySelector("#names-pokemon")
     let pokemonId = pokemoneEl.options[pokemoneEl.selectedIndex].value
   
@@ -62,7 +150,6 @@ function selectedPokemon(){
         `).join("")}
         `
 }
-
 
 let arrayType = [];
 
@@ -217,50 +304,3 @@ btnBack.addEventListener("click", function(){
     document.location.reload(true)
     });
 
-document.querySelector("#btn-voltar").style.display = "none";
-
-//Funcoes de telas 
-let btnBack = document.getElementById("btn-voltar");
-btnBack.addEventListener("click", function(){
-    document.location.reload(true);
-    });
-   
-let hidenName= document.querySelector("#section-names")    
-hidenName.addEventListener("change", () => {
-    hideScreenName();
-    });
-
-function hideScreenName(){
-    hidenType.style.display = "none";
-    document.querySelector("#section-weaknesses").style.display = "none";
-    document.querySelector("#section-types").style.display = "none";
-    document.querySelector(".imagem-box-name").style.display = "none";
-    document.querySelector(".text-box-name").style.display = "none";
-    document.querySelector("#btn-voltar").style.display = "block";
-}
-
-let hidenType= document.querySelector("#select-type")
-hidenType.addEventListener("change", () => {
-    hideScreenType();
-    });
-    
-function hideScreenType(){
-    document.querySelector("#section-names").style.display = "none";
-    document.querySelector("#section-weaknesses").style.display = "none";
-    document.querySelector(".imagem-box-types").style.display = "none";
-    document.querySelector(".text-box-types").style.display = "none";
-    document.querySelector("#btn-voltar").style.display = "block";
-}
-
-let hidenWeaknesses= document.querySelector("#select-weaknesses")
-hidenWeaknesses.addEventListener("change", () => {
-    hideScreenType();
-    });
-
-function hideScreenWeaknesses(){
-    document.querySelector("#section-names").style.display = "none";
-    document.querySelector("#section-types").style.display = "none";
-    document.querySelector(".imagem-box").style.display = "none";
-    document.querySelector(".text-select-box").style.display = "none";
-    document.querySelector("#btn-voltar").style.display = "block";
-}
