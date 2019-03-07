@@ -11,7 +11,9 @@ let displayType = document.querySelector("#display-type")
 let selectWeaknesses = document.querySelector("#select-weaknesses")
 let displayWeaknesses = document.querySelector("#display-weaknesses")
 let order = document.querySelector("#order")
+let orderWeak = document.querySelector("#order-weak")
 document.querySelector("#btn-exit-name").style.display = "none"
+document.querySelector("#btn-exit-weak").style.display = "none"
 
 function hideScreenName(){
     document.querySelector("#section-types").style.display = "none"
@@ -31,10 +33,13 @@ function hideScreenType(){
 }
 
 function hideScreenWeaknesses(){
-    document.querySelector("#section-names").style.display = "none"
-    document.querySelector("#section-types").style.display = "none"
+    document.querySelector("#show-order-weak").classList.remove("hide")
+    document.querySelector("#order-weak").classList.remove("hide")
     document.querySelector("#img-weaknesses").classList.add("hide")   
     document.querySelector("#text-weaknesses").classList.add("hide") 
+    document.querySelector("#section-names").classList.add("hide")
+    document.querySelector("#section-types").classList.add("hide")
+    document.querySelector("#btn-exit-weak").style.display = "block"
 }
 //Acaba aqui
 
@@ -127,6 +132,7 @@ hideScreenType()
 selectWeaknesses.addEventListener("change", () => {
     sectionFilterWeaknesses = selectedPokemonFrom('weaknesses', selectWeaknesses, displayWeaknesses)
     categorySectionFilter = "weaknesses"
+    hideScreenWeaknesses()
 })
 
 function selectedPokemonFrom(categorySelect, dataSelect, displayTag){
@@ -176,13 +182,21 @@ function showPokemon(pokemon, tagById){
                 `
 }
 
-order.addEventListener("change", () => {
+    order.addEventListener("change", () => {
+        enjoin()
+    })
+
+    orderWeak.addEventListener("change", () => {
+        enjoin()
+    })
+
+    function enjoin(){
     let arrayOrder;
     if (categorySectionFilter === "type"){
         arrayOrder = orderBy(order.value, sectionFilterType)
     }
     else if (categorySectionFilter === "weaknesses"){
-        arrayOrder = orderBy(order.value, sectionFilterWeaknesses)
+        arrayOrder = orderBy(orderWeak.value, sectionFilterWeaknesses)
     }
     displayType.innerHTML = ""
     displayWeaknesses.innerHTML = ""
@@ -194,7 +208,7 @@ order.addEventListener("change", () => {
             showPokemon(item, displayWeaknesses)
         }
     }
-    });
+    }
 
 function orderBy(choiceOrder, section){
     let choice = choiceOrder;
@@ -240,4 +254,6 @@ btnBack.addEventListener("click", function(){
     });
 
 
+// function counterPokemonByType(){
 
+// }

@@ -44,8 +44,12 @@
     color: #ffcb08;
     font-size: 18px;
     font-weight: bold;
-    width: 100%;
+    flex-grow: 1;
     padding-left:20%;
+}
+
+.order{
+    flex-grow: 1;
 }
 
 .style-selected{
@@ -56,8 +60,8 @@
     color: #ffcb08;
     font-size: 18px;
     font-weight: bold;
-    width: 50%;
-    padding-left:20%;
+    /* width: 50%;
+    padding-left:20%; */
 }
 
 .sections-box img{
@@ -120,7 +124,6 @@
 .button-style{
     border-radius: 15px;
     padding: 8px;
-    width: 20%;
     background-color:#ed1c24;
     border: none;
     color: white;

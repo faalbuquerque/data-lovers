@@ -12,7 +12,7 @@
       <main class="container">
 
         <!-- Seção Escolher por nome -->
-        <section class="sections-box" id= "section-names">
+        <section id= "section-names" class="sections-box">
           <select id="names-pokemon" class="style-select-box" onchange="selectedPokemon(); hideScreenName()"> 
             <option class="title-select">Escolha por nome</option>
           </select>
@@ -35,7 +35,7 @@
           </p>
           <p id="display-type" class="style-pokemons"></p>
 
-          <div id="show-type" class="hide">
+          <div id="show-type" class="order hide">
             <select id="order" class="style-selected hide">
               <option>Ordenar por:</option>
               <option class="order-name" value="name-A-Z">Ordenar de A-Z</option>
@@ -47,23 +47,26 @@
         </section>
 
         <!-- Seção Escolher por fraqueza -->
-        <section class="sections-box" id= "section-weaknesses">
-          <select id="select-weaknesses" class="style-select-box" onchange="hideScreenWeaknesses()">
+        <section id="section-weaknesses" class="sections-box">
+          <select id="select-weaknesses" class="style-select-box">
             <option class="title-select" value="title-select">Escolha por fraquezas</option>
           </select>
           <img id="img-weaknesses" src="images/jigglypuff.png" class="imagem-box">
           <p id="text-weaknesses" class="text-select-box">
             Neste filtro serão listados todos os pokémons que tem fraqueza pelo tipo selecionado. Ou seja, se você selecionar Water, ele mostrará todos os pokémons fracos contra água.
           </p>
-          <p id="display-weaknesses" class="style-pokemons"></p>
-          <div id="show-type" class="hide">
-              <select id="order2" class="style-selected hide">
+          
+          <div id="show-order-weak" class="order hide">
+              <select id="order-weak" class="style-selected hide">
+                <option>Ordenar por:</option>
                 <option class="order-name" value="name-A-Z">Ordenar de A-Z</option>
                 <option class="desorder-name" value="name-Z-A">Ordenar de Z-A</option>
                 <option class="order-id" value="id">Nº da Pokédex #</option>
               </select>
-              <button id= "btn-exit-type" class="button-style">Voltar</button>
+              
             </div>
+            <p id="display-weaknesses" class="style-pokemons"></p>
+            <button id="btn-exit-weak" class="button-style">Voltar</button>
         </section>
 
       </main> 
