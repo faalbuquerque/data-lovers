@@ -4,32 +4,6 @@ window.onload= function(){
     showTypePokemon(selectType);
     showTypePokemon(selectWeaknesses);
 }
-//Parte do codigo para esconder as telas de acordo com o select, falta fazer os botoes!
-
-document.querySelector("#btn-voltar").style.display = "none";
-
-function hideScreenName(){
-    document.querySelector("#section-types").style.display = "none";
-    document.querySelector("#section-weaknesses").style.display = "none";
-    document.querySelector(".imagem-box").style.display = "none";
-    document.querySelector(".text-select-box").style.display = "none";
-    document.querySelector("#btn-voltar").style.display = "block";
-}
-
-
-function hideScreenType(){
-    document.querySelector("#section-names").style.display = "none";
-    document.querySelector("#section-weaknesses").style.display = "none";
-  
-}
-
-function hideScreenWeaknesses(){
-    document.querySelector("#section-names").style.display = "none";
-    document.querySelector("#section-types").style.display = "none";
-    
-    
-}
-//Acaba aqui
 
 
 function getOrderedPokemonByNames(){
@@ -57,15 +31,20 @@ function showNamesPokemon(){
    `
 }
 
-function selectedPokemon(){
-    let pokemoneEl = document.getElementById("names-pokemon")
-    let pokemonId = pokemoneEl.options[pokemoneEl.selectedIndex].value;
-  
-    let result = POKEMON['pokemon'].filter(pokemon => pokemon.id == pokemonId);
 
-    let showPokemon = document.getElementById("display-name");
-    showPokemon.innerHTML = ''
-    showPokemon.innerHTML += `
+function selectedPokemon(){
+    let pokemoneEl= document.getElementById("names-pokemon");
+    let showPokemon= document.getElementById("display-name");
+
+    pokemoneEl.addEventListener("change", () => {
+    selectedPokemon('name', pokemoneEl, showPokemon);
+    });
+    
+    let pokemonId= pokemoneEl.options[pokemoneEl.selectedIndex].value;
+    let result= POKEMON['pokemon'].filter(pokemon => pokemon.id == pokemonId);
+
+    showPokemon.innerHTML= ''
+    showPokemon.innerHTML+= `
         ${result.map( pokemon => `
             <img src="${pokemon.img}">
             <p>Nome: ${pokemon.name}</p>
@@ -84,6 +63,7 @@ function selectedPokemon(){
         `).join("")}
         `
 }
+
 
 let selectType = document.querySelector("#select-type");
 let displayType = document.querySelector("#display-type");
@@ -151,4 +131,54 @@ function showPokemon(pokemon, tagById){
                     </div> 
                 </section>        
                 `
+}
+
+
+document.querySelector("#btn-voltar").style.display = "none";
+
+let btnBack = document.getElementById("btn-voltar");
+btnBack.addEventListener("click", function(){
+    document.location.reload(true);
+    });
+   
+let hidenName= document.querySelector("#section-names")    
+hidenName.addEventListener("change", () => {
+    hideScreenName();
+    });
+
+function hideScreenName(){
+    hidenType.style.display = "none";
+    document.querySelector("#section-weaknesses").style.display = "none";
+    document.querySelector("#section-types").style.display = "none";
+    document.querySelector(".imagem-box-name").style.display = "none";
+    document.querySelector(".text-box-name").style.display = "none";
+    document.querySelector("#btn-voltar").style.display = "block";
+}
+
+
+let hidenType= document.querySelector("#select-type")
+hidenType.addEventListener("change", () => {
+    hideScreenType();
+    });
+    
+function hideScreenType(){
+    document.querySelector("#section-names").style.display = "none";
+    document.querySelector("#section-weaknesses").style.display = "none";
+    document.querySelector(".imagem-box-types").style.display = "none";
+    document.querySelector(".text-box-types").style.display = "none";
+    document.querySelector("#btn-voltar").style.display = "block";
+}
+
+
+let hidenWeaknesses= document.querySelector("#select-weaknesses")
+hidenWeaknesses.addEventListener("change", () => {
+    hideScreenType();
+    });
+
+function hideScreenWeaknesses(){
+    document.querySelector("#section-names").style.display = "none";
+    document.querySelector("#section-types").style.display = "none";
+    document.querySelector(".imagem-box").style.display = "none";
+    document.querySelector(".text-select-box").style.display = "none";
+    document.querySelector("#btn-voltar").style.display = "block";
 }
