@@ -31,6 +31,11 @@
     color: #2f6bb4;
     font-weight: bold;
     background-color: #ffcb08;
+    
+}
+
+.section-types2{
+    background-image: url("images/background1.jpg");
 }
 
 .imagem-box-weaknesses, .imagem-box-types, .imagem-box-name{
@@ -99,11 +104,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: #ffcb08;
+    background-color: transparent;
     color: #ffcb08;
     border-radius: 8px;
+    
 }
-
 
 .style-pokemons p{
     margin: 2%;
@@ -171,4 +176,10 @@
     background-color: #ffcb08; 
 }
 
+.style-label{
+    color: black;
+}
 
+.result-pokemons-found{
+    color: black;
+}

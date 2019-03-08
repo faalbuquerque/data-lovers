@@ -34,6 +34,8 @@
               </select>
           </div>
 
+          <p class="result-pokemons-found"><span id="pokemons-found-type"></span> pokémons filtrados por esse tipo</p>
+
           <select id="select-type" class="style-select-box">
             <option class="title-select" value="">Escolha por tipo</option>
           </select>
@@ -57,6 +59,8 @@
                 <option class="order-id" value="id">Nº da Pokédex #</option>
               </select>
             </div>
+            
+            <p class="result-pokemons-found"><span id="pokemons-found-weaknesses"></span> pokémons filtrados que tem fraqueza contra esse tipo. </p>
 
           <select id="select-weaknesses" class="style-select-box">
             <option class="title-select" value="">Escolha por fraquezas</option>
@@ -72,6 +76,9 @@
         <section id="curiosities">
           <h3 class= "media-pokes"> Qual tipo de Pokemon mais aparece? </h3>
           <p id="display-media"></p>
+
+          <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
         </section>
       </main>
       
@@ -83,6 +90,9 @@
           <button id= "btn-voltar" class="button-style">Voltar</button>
       </div>
       
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/modules/exporting.js"></script>
+      <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
     <script src="./data/pokemon/pokemon.js"></script>
     <script src="main.js"></script>

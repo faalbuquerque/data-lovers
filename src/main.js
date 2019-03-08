@@ -111,7 +111,11 @@ function selectedPokemonFrom(categorySelect, dataSelect, displayTag){
         <p> Nenhum pokémon encontrado </p>
         `
     }
+    else if (pokemonsFromType.length > 0){
+    let pokemonsFound = document.querySelector("#pokemons-found-" + categorySelect);
+    pokemonsFound.innerHTML = pokemonsFromType.length
     return pokemonsFromType;
+    }
 }
 
 order.addEventListener("change", () => {
@@ -254,6 +258,7 @@ function hideScreenType(){
     document.querySelector(".text-box-types").style.display = "none";
     document.querySelector("#btn-voltar").style.display = "block";
     document.getElementById("btn-curiosities").style.display = "none";
+    document.getElementById("section-types").classList.add("section-types2");
     
 }
 
@@ -291,3 +296,74 @@ function hideScreenAll(){
     document.getElementById("curiosities").style.display = "block";
     document.getElementById("btn-curiosities").style.display = "none";
 }
+
+//Logica do grafico
+
+const types = []
+
+POKEMON.pokemon.map(pokemon => pokemon.type).map(item =>
+    item.forEach(type => {
+      types.push(type)
+    }))
+
+const typesCount = {}
+
+
+for (var i = 0; i < types.length; ++i) {
+   
+    if (!typesCount[types[i]]) {
+      typesCount[types[i]] = 0;
+    }
+  
+    ++typesCount[types[i]];
+    
+  }
+  
+  
+  const displayMedia = document.querySelector("#display-media")
+  
+  Object.keys(typesCount).forEach(key => {
+    displayMedia.innerHTML += `<p>${key}: ${typesCount[key]}</p>`
+  });
+
+  
+  // codigo do grafico
+  Highcharts.chart('container', {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: 'Qual Tipo tem mais pokémons'
+    },
+    subtitle: {
+      text: 'Dados dos 151 pokemóns da Região de Kanto'
+    },
+    xAxis: {
+      categories: arrayType,
+      crosshair: true
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: 'Quantidade'
+      }
+    },
+    // tooltip: {
+    //   headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+    //   pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+    //     '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+    //   footerFormat: '</table>',
+    //   shared: true,
+    //   useHTML: true
+    // },
+    plotOptions: {
+      column: {
+        pointPadding: 0.2,
+        borderWidth: 0
+      }
+    },
+    series: [{
+      name: 'Tokyo',
+      data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+    }]
+  });
