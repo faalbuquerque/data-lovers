@@ -10,7 +10,6 @@
   <body>
     <header class= "background-top"></header>
       <main class="container">
-        
         <section id= "section-names" class="sections-box">
           <label class="style-label"> Selecione o nome do Pokémon </label>
           <select id="names-pokemon" class="style-select-box">
@@ -69,24 +68,20 @@
         <section id="curiosities">
           <h3 class= "media-pokes"> Qual tipo de Pokemon mais aparece? </h3>
           <p id="display-media"></p>
+          <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
           <div class= "btn-curiosities">
             <button id="btn-curiosities" class="btn-curiosities-style"> Curiosidades</button>
           </div>
         </section>
       </main>
-      
-      
 
       <div class= "btn-final">
-          <button id= "btn-voltar" class="button-style">Voltar</button>
+        <button id= "btn-voltar" class="button-style">Voltar</button>
       </div>
       
-          <script src="https://code.highcharts.com/highcharts.js"></script>
-          <script src="https://code.highcharts.com/modules/exporting.js"></script>
-          <script src="https://code.highcharts.com/modules/export-data.js"></script>
-          <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-          <p id="teste"></p>
-
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="./data/pokemon/pokemon.js"></script>
     <script src="main.js"></script>
   </body>

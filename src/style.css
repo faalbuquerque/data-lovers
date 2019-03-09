@@ -31,6 +31,39 @@
     color: #2f6bb4;
     font-weight: bold;
     background-color: #ffcb08;
+    
+}
+
+.section-types2{
+    background-image: url("images/background1.jpg");
+}
+
+.imagem-box-weaknesses, .imagem-box-types, .imagem-box-name{
+    width: 25%;
+    margin: 3%;
+    background-color: #ffcb08;
+    text-align: right;
+
+}
+
+.order-hide{
+    text-align: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.style-selected-hide{
+    border-top-left-radius: 10px;
+    outline: none;
+    border: none;
+    color: #ffcb08;
+    font-size: 15px;
+    
+}
+
+.style-selected-hide:hover{
+    color: white; 
+    font-weight: bold;
 }
 
 .imagem-box-weaknesses, .imagem-box-types, .imagem-box-name{
@@ -99,11 +132,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: #ffcb08;
+    background-color: transparent;
     color: #ffcb08;
     border-radius: 8px;
+    
 }
-
 
 .style-pokemons p{
     margin: 2%;
@@ -126,7 +159,6 @@
 .text-box-name, .text-box-types, .text-box-weaknesses, .pokemon-type, .text-type, .pokemons-type, .style-pokemons img {
     background-color: #ffcb08;
 }
-
 
 .btn-curiosities{
     display: flex;
@@ -171,7 +203,6 @@
     background-color: #ffcb08; 
 }
 
-
 .style-label{
     color: black;
 }
@@ -179,4 +210,3 @@
 .result-pokemons-found{
     color: black;
 }
-

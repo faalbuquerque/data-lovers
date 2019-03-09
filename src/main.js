@@ -48,7 +48,6 @@ function selectedPokemon(){
     let pokemonId= pokemoneEl.options[pokemoneEl.selectedIndex].value;
     let result= POKEMON['pokemon'].filter(pokemon => pokemon.id == pokemonId);
     let nextEvolution = result.map((pokemon) => {return pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : 'Sem evolução'});
-   
     showPokemon.innerHTML= ''
     showPokemon.innerHTML+= `
         ${result.map( pokemon => `
@@ -105,14 +104,6 @@ selectWeaknesses.addEventListener("change", () => {
     categorySectionFilter = "weaknesses"
     hideScreenWeaknesses()
 })
-
-// let btnCuriosities = document.querySelector("#btn-curiosities")
-// btnCuriosities.addEventListener("click", () => {
-//     let arrayQuant = []
-//     for (forType of arrayType){
-//         sectionFilterType = selectedPokemonFrom(arrayType[forType], arrayType[forType], displayType)
-//     }
-// })
 
 function selectedPokemonFrom(categorySelect, dataSelect, displayTag){
     displayTag.innerHTML = ""
@@ -230,14 +221,20 @@ function showPokemon(pokemon, tagById){
                 `
 }
 
+//Agrupei todas as funcoes de eventos de telas aqui:
+
 document.querySelector("#btn-voltar").style.display = "none";
+
+document.querySelector("#show-type").style.display = "none";
+document.querySelector("#show-order-weak").style.display = "none";
 
 let btnBack = document.getElementById("btn-voltar");
 btnBack.addEventListener("click", function(){
     document.location.reload(true);
     });
 
-let hidenName= document.querySelector("#section-names")    
+
+let hidenName= document.querySelector("#section-names")  
 hidenName.addEventListener("change", () => {
     hideScreenName();
     });
@@ -249,28 +246,99 @@ function hideScreenName(){
     document.querySelector(".imagem-box-name").style.display = "none";
     document.querySelector(".text-box-name").style.display = "none";
     document.querySelector("#btn-voltar").style.display = "block";
+    document.getElementById("btn-curiosities").style.display = "none";
 }
 
+
+selectType.addEventListener("change", () => {
+    sectionFilterType = selectedPokemonFrom('type', selectType, displayType)
+    categorySectionFilter = "type"
+    hideScreenType()
+    });
+
+selectWeaknesses.addEventListener("change", () => {
+    sectionFilterWeaknesses = selectedPokemonFrom('weaknesses', selectWeaknesses, displayWeaknesses)
+    categorySectionFilter = "weaknesses"
+    hideScreenWeaknesses()
+})
+
 function hideScreenType(){
+    document.querySelector("#show-type").style.display = "block";
     document.querySelector("#section-names").style.display = "none";
     document.querySelector("#section-weaknesses").style.display = "none";
     document.querySelector(".imagem-box-types").style.display = "none";
     document.querySelector(".text-box-types").style.display = "none";
     document.querySelector("#btn-voltar").style.display = "block";
-    document.getElementById("section-types").classList.add("sections-box2");
+    document.getElementById("btn-curiosities").style.display = "none";
+    document.getElementById("section-types").classList.add("section-types2");
+    
 }
 
 function hideScreenWeaknesses(){
+    document.querySelector("#show-order-weak").style.display = "block";
     document.querySelector("#section-names").style.display = "none";
     document.querySelector("#section-types").style.display = "none";
-    document.querySelector(".imagem-box").style.display = "none";
-    document.querySelector(".text-select-box").style.display = "none";
+    //as classes estavam com nome errado
+    document.querySelector(".imagem-box-weaknesses").style.display = "none";
+    document.querySelector(".text-box-weaknesses").style.display = "none";
     document.querySelector("#btn-voltar").style.display = "block";
+    document.getElementById("btn-curiosities").style.display = "none";
 }
 
+document.getElementById("curiosities").style.display = "none";
+
+//funcoes de tela da parte de curiosidades:
+let curiosities = document.getElementById("btn-curiosities");
+curiosities.addEventListener("click", () => {
+    hideScreenAll();
+    });
+
+function hideScreenAll(){
+    selectType.style.display = "none";
+    document.querySelector("#section-names").style.display = "none";
+    document.querySelector("#section-types").style.display = "none";
+    document.querySelector("#section-weaknesses").style.display = "none";
+    document.querySelector(".imagem-box-name").style.display = "none";
+    document.querySelector(".imagem-box-types").style.display = "none";
+    document.querySelector(".imagem-box-weaknesses").style.display = "none";
+    document.querySelector(".text-box-name").style.display = "none";
+    document.querySelector(".text-box-types").style.display = "none";
+    document.querySelector(".text-box-weaknesses").style.display = "none";
+    document.querySelector("#btn-voltar").style.display = "block";
+    document.getElementById("curiosities").style.display = "block";
+    document.getElementById("btn-curiosities").style.display = "none";
+}
+
+//Logica do grafico
+
+const types = []
+
+POKEMON.pokemon.map(pokemon => pokemon.type).map(item =>
+    item.forEach(type => {
+      types.push(type)
+    }))
+
+const typesCount = {}
 
 
+for (var i = 0; i < types.length; ++i) {
+   
+    if (!typesCount[types[i]]) {
+      typesCount[types[i]] = 0;
+    }
+  
+    ++typesCount[types[i]];
+    
+  }
+  
+  
+  const displayMedia = document.querySelector("#display-media")
+  
+  Object.keys(typesCount).forEach(key => {
+    displayMedia.innerHTML += `<p>${key}: ${typesCount[key]}</p>`
+  });
 
+// codigo do grafico
 Highcharts.chart('container', {
     chart: {
       type: 'column'
