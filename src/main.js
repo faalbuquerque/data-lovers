@@ -5,95 +5,12 @@ window.onload= function(){
     showTypePokemon(selectWeaknesses)
 }
 
-//Parte do codigo para esconder as telas de acordo com o select, falta fazer os botoes!
 let selectType = document.querySelector("#select-type")
 let displayType = document.querySelector("#display-type")
 let selectWeaknesses = document.querySelector("#select-weaknesses")
 let displayWeaknesses = document.querySelector("#display-weaknesses")
 let order = document.querySelector("#order")
 let orderWeak = document.querySelector("#order-weak")
-document.querySelector("#btn-exit-name").style.display = "none"
-document.querySelector("#btn-exit-weak").style.display = "none"
-
-function hideScreenName(){
-    document.querySelector("#section-types").style.display = "none"
-    document.querySelector("#section-weaknesses").style.display = "none"
-    document.querySelector(".imagem-box").style.display = "none"
-    document.querySelector(".text-select-box").style.display = "none"
-    document.querySelector("#btn-exit-name").style.display = "block"
-}
-
-function hideScreenType(){
-    document.querySelector("#show-type").classList.remove("hide")
-    document.querySelector("#order").classList.remove("hide")
-    document.querySelector("#img-type").classList.add("hide")   
-    document.querySelector("#text-type").classList.add("hide") 
-    document.querySelector("#section-names").classList.add("hide") 
-    document.querySelector("#section-weaknesses").classList.add("hide")   
-}
-
-function hideScreenWeaknesses(){
-    document.querySelector("#show-order-weak").classList.remove("hide")
-    document.querySelector("#order-weak").classList.remove("hide")
-    document.querySelector("#img-weaknesses").classList.add("hide")   
-    document.querySelector("#text-weaknesses").classList.add("hide") 
-    document.querySelector("#section-names").classList.add("hide")
-    document.querySelector("#section-types").classList.add("hide")
-    document.querySelector("#btn-exit-weak").style.display = "block"
-}
-//Acaba aqui
-
-/* versao com addEventListener
-
-document.querySelector("#btn-voltar").style.display = "none";
-
-let btnBack = document.getElementById("btn-voltar");
-btnBack.addEventListener("click", function(){
-    document.location.reload(true);
-    });
-   
-let hidenName= document.querySelector("#section-names")    
-hidenName.addEventListener("change", () => {
-    hideScreenName();
-    });
-
-function hideScreenName(){
-    hidenType.style.display = "none";
-    document.querySelector("#section-weaknesses").style.display = "none";
-    document.querySelector("#section-types").style.display = "none";
-    document.querySelector(".imagem-box-name").style.display = "none";
-    document.querySelector(".text-box-name").style.display = "none";
-    document.querySelector("#btn-voltar").style.display = "block";
-}
-
-
-let hidenType= document.querySelector("#select-type")
-hidenType.addEventListener("change", () => {
-    hideScreenType();
-    });
-    
-function hideScreenType(){
-    document.querySelector("#section-names").style.display = "none";
-    document.querySelector("#section-weaknesses").style.display = "none";
-    document.querySelector(".imagem-box-types").style.display = "none";
-    document.querySelector(".text-box-types").style.display = "none";
-    document.querySelector("#btn-voltar").style.display = "block";
-}
-
-
-let hidenWeaknesses= document.querySelector("#select-weaknesses")
-hidenWeaknesses.addEventListener("change", () => {
-    hideScreenType();
-    });
-
-function hideScreenWeaknesses(){
-    document.querySelector("#section-names").style.display = "none";
-    document.querySelector("#section-types").style.display = "none";
-    document.querySelector(".imagem-box").style.display = "none";
-    document.querySelector(".text-select-box").style.display = "none";
-    document.querySelector("#btn-voltar").style.display = "block";
-}
-*/
 
 function getOrderedPokemonByNames(){
     return POKEMON.pokemon.sort((a, b) => {
@@ -121,16 +38,19 @@ function showNamesPokemon(){
 }
 
 function selectedPokemon(){
-    let pokemoneEl = document.querySelector("#names-pokemon")
-    let pokemonId = pokemoneEl.options[pokemoneEl.selectedIndex].value
-  
-    let result = POKEMON['pokemon'].filter(pokemon => pokemon.id == pokemonId)
+    let pokemoneEl= document.getElementById("names-pokemon")
+    let showPokemon= document.getElementById("display-name")
 
-    let nextEvolution = POKEMON.pokemon["next_evolution"] ? POKEMON.pokemon["next_evolution"][0].name : 'Sem evolução'
-    
-    let showPokemon = document.querySelector("#display-name")
-    showPokemon.innerHTML = ''
-    showPokemon.innerHTML += `
+    pokemoneEl.addEventListener("change", () => {
+    selectedPokemon('name', pokemoneEl, showPokemon);
+    });
+
+    let pokemonId= pokemoneEl.options[pokemoneEl.selectedIndex].value;
+    let result= POKEMON['pokemon'].filter(pokemon => pokemon.id == pokemonId);
+    let nextEvolution = result.map((pokemon) => {return pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : 'Sem evolução'});
+   
+    showPokemon.innerHTML= ''
+    showPokemon.innerHTML+= `
         ${result.map( pokemon => `
             <img src="${pokemon.img}">
             <p>Nome: ${pokemon.name}</p>
@@ -146,7 +66,7 @@ function selectedPokemon(){
             <p>Encontrar jogadores: ${pokemon.spawn_time}</p>
             <p>Multiplicadores: ${pokemon.multipliers}</p>
             <p>Fraquezas: ${pokemon.weaknesses}</p>
-            <p>Proxima evolucao: ${nextEvolution}</p>
+            <p>Proxima evolucao: ${nextEvolution} </p>
         `).join("")}
         `
 }
@@ -171,13 +91,13 @@ function showTypePokemon(category){
     }
 }
 
-var sectionFilterType, sectionFilterWeaknesses, categorySectionFilter;
+let sectionFilterType, sectionFilterWeaknesses, categorySectionFilter;
 
 
 selectType.addEventListener("change", () => {
-sectionFilterType = selectedPokemonFrom('type', selectType, displayType)
-categorySectionFilter = "type"
-hideScreenType()
+    sectionFilterType = selectedPokemonFrom('type', selectType, displayType)
+    categorySectionFilter = "type"
+    hideScreenType()
 });
 
 selectWeaknesses.addEventListener("change", () => {
@@ -185,6 +105,14 @@ selectWeaknesses.addEventListener("change", () => {
     categorySectionFilter = "weaknesses"
     hideScreenWeaknesses()
 })
+
+// let btnCuriosities = document.querySelector("#btn-curiosities")
+// btnCuriosities.addEventListener("click", () => {
+//     let arrayQuant = []
+//     for (forType of arrayType){
+//         sectionFilterType = selectedPokemonFrom(arrayType[forType], arrayType[forType], displayType)
+//     }
+// })
 
 function selectedPokemonFrom(categorySelect, dataSelect, displayTag){
     displayTag.innerHTML = ""
@@ -206,42 +134,22 @@ function selectedPokemonFrom(categorySelect, dataSelect, displayTag){
         <p> Nenhum pokémon encontrado </p>
         `
     }
+    else if (pokemonsFromType.length > 0){
+    let pokemonsFound = document.querySelector("#pokemons-found-" + categorySelect);
+    pokemonsFound.innerHTML = pokemonsFromType.length
     return pokemonsFromType;
+    }
 }
 
+order.addEventListener("change", () => {
+    enjoin()
+})
 
-function showPokemon(pokemon, tagById){
-    let nextEvolution = pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : 'Sem evolução'
+orderWeak.addEventListener("change", () => {
+    enjoin()
+})
 
-    tagById.innerHTML += `
-                <section class="pokemons-type">
-                    <div class="pokemon-type">
-                        <img src="${pokemon.img}" class="poke-photo" />   
-                        <div class="text-name">
-                            <h3 class="poke-name">${pokemon.name}</h3>
-                        </div>
-                        <div class="text-type">
-                            <p> Nº Pokedex: #${pokemon.num}</p>
-                            <p class="poke-type"> Tipo: ${pokemon.type.join(", ")}</p>
-                            <p> Qtd de Candys para evoluir: ${pokemon.candy_count}</p>
-                            <p>Chance de encontrar: ${pokemon.spawn_chance}</p>
-                            <p> Fraquezas: ${pokemon.weaknesses.join(", ")}</p>
-                            <p> Próxima(s) Evolução(ões): ${nextEvolution}</p>
-                        </div>
-                    </div> 
-                </section>        
-                `
-}
-
-    order.addEventListener("change", () => {
-        enjoin()
-    })
-
-    orderWeak.addEventListener("change", () => {
-        enjoin()
-    })
-
-    function enjoin(){
+function enjoin(){
     let arrayOrder;
     if (categorySectionFilter === "type"){
         arrayOrder = orderBy(order.value, sectionFilterType)
@@ -259,7 +167,7 @@ function showPokemon(pokemon, tagById){
             showPokemon(item, displayWeaknesses)
         }
     }
-    }
+}
 
 function orderBy(choiceOrder, section){
     let choice = choiceOrder;
@@ -288,19 +196,117 @@ function orderBy(choiceOrder, section){
     }
     else if (choice === "id"){
         return section.sort((a, b) => {
-        if (a.id > b.id){
-            return 1;
-        }
-        if (a.id < b.id){
-            return -1;
-        }
-        return 0;
-    });
+            if (a.id > b.id){
+                return 1;
+            }
+            if (a.id < b.id){
+                return -1;
+            }
+            return 0;
+        });
     }
 }
 
-let btnBack = document.querySelector("#btn-exit-name")
+function showPokemon(pokemon, tagById){
+    let nextEvolution = pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : 'Sem evolução'
+
+    tagById.innerHTML += `
+                <section class="pokemons-type">
+                    <div class="pokemon-type">
+                        <img src="${pokemon.img}" class="poke-photo" />   
+                        <div class="text-name">
+                            <h3 class="poke-name">${pokemon.name}</h3>
+                        </div>
+                        <div class="text-type">
+                            <p> Nº Pokedex: #${pokemon.num}</p>
+                            <p class="poke-type"> Tipo: ${pokemon.type.join(", ")}</p>
+                            <p> Qtd de Candys para evoluir: ${pokemon.candy_count}</p>
+                            <p>Chance de encontrar: ${pokemon.spawn_chance}</p>
+                            <p> Fraquezas: ${pokemon.weaknesses.join(", ")}</p>
+                            <p> Próxima(s) Evolução(ões): ${nextEvolution}</p>
+                        </div>
+                    </div> 
+                </section>        
+                `
+}
+
+document.querySelector("#btn-voltar").style.display = "none";
+
+let btnBack = document.getElementById("btn-voltar");
 btnBack.addEventListener("click", function(){
-    document.location.reload(true)
+    document.location.reload(true);
     });
 
+let hidenName= document.querySelector("#section-names")    
+hidenName.addEventListener("change", () => {
+    hideScreenName();
+    });
+
+function hideScreenName(){
+    selectType.style.display = "none";
+    document.querySelector("#section-weaknesses").style.display = "none";
+    document.querySelector("#section-types").style.display = "none";
+    document.querySelector(".imagem-box-name").style.display = "none";
+    document.querySelector(".text-box-name").style.display = "none";
+    document.querySelector("#btn-voltar").style.display = "block";
+}
+
+function hideScreenType(){
+    document.querySelector("#section-names").style.display = "none";
+    document.querySelector("#section-weaknesses").style.display = "none";
+    document.querySelector(".imagem-box-types").style.display = "none";
+    document.querySelector(".text-box-types").style.display = "none";
+    document.querySelector("#btn-voltar").style.display = "block";
+    document.getElementById("section-types").classList.add("sections-box2");
+}
+
+function hideScreenWeaknesses(){
+    document.querySelector("#section-names").style.display = "none";
+    document.querySelector("#section-types").style.display = "none";
+    document.querySelector(".imagem-box").style.display = "none";
+    document.querySelector(".text-select-box").style.display = "none";
+    document.querySelector("#btn-voltar").style.display = "block";
+}
+
+
+
+
+Highcharts.chart('container', {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: 'Qual Tipo tem mais pokémons'
+    },
+    subtitle: {
+      text: 'Dados dos 151 pokemóns da Região de Kanto'
+    },
+    xAxis: {
+      categories: arrayType,
+      crosshair: true
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: 'Quantidade'
+      }
+    },
+    tooltip: {
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+      footerFormat: '</table>',
+      shared: true,
+      useHTML: true
+    },
+    plotOptions: {
+      column: {
+        pointPadding: 0.2,
+        borderWidth: 0
+      }
+    },
+    series: [{
+      name: 'Tokyo',
+      data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+    }]
+  });

@@ -1,4 +1,11 @@
 # Data Lovers
+O Data Lovers é um projeto que foi estipulado pela Laboratória com o intuito de desenvolvermos uma página web que visualizasse um conjunto de dados. 
+Nossa dupla escolheu o tema <b>Pokemón Go</b>, onde recebemos uma lista com 151 pokemóns da região de Kanto, que continham vários dados sobre cada pokemón, e precisávamos mostrar esses dados na tela de uma forma fácil de entender, e que fosse possível filtrar e ordenar os dados. E fazer algum tipo de cálculo agregado.
+
+# Persona
+Os nossos usuários são jogadores de Pokémon Go que lutam em ginásios ou Raids.
+Chegamos nesse tipo de persona, pois investigamos quais eram as reais necessidades dos jogadores, e descobrimos que existem algumas dificuldades em saber qual pokémon usar contra o oponente que está em um ginásio ou Raid. 
+
 
 #Definição de Uuário
 Batalhas em Pokémon GO acontecem nos Ginásios. Não importa se você está tentando conquistar um ginásio inimigo ou apenas treinando em um ginásio aliado, ou até mesmo lutando em uma Raid. Você precisa saber do básico:
