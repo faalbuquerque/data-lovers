@@ -48,7 +48,6 @@ function selectedPokemon(){
     let pokemonId= pokemoneEl.options[pokemoneEl.selectedIndex].value;
     let result= POKEMON['pokemon'].filter(pokemon => pokemon.id == pokemonId);
     let nextEvolution = result.map((pokemon) => {return pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : 'Sem evolução'});
-
     showPokemon.innerHTML= ''
     showPokemon.innerHTML+= `
         ${result.map( pokemon => `
@@ -91,6 +90,21 @@ function showTypePokemon(category){
     }
 }
 
+let sectionFilterType, sectionFilterWeaknesses, categorySectionFilter;
+
+
+selectType.addEventListener("change", () => {
+    sectionFilterType = selectedPokemonFrom('type', selectType, displayType)
+    categorySectionFilter = "type"
+    hideScreenType()
+});
+
+selectWeaknesses.addEventListener("change", () => {
+    sectionFilterWeaknesses = selectedPokemonFrom('weaknesses', selectWeaknesses, displayWeaknesses)
+    categorySectionFilter = "weaknesses"
+    hideScreenWeaknesses()
+})
+
 function selectedPokemonFrom(categorySelect, dataSelect, displayTag){
     displayTag.innerHTML = ""
     let pokemonsFromType = POKEMON.pokemon.filter(
@@ -125,8 +139,6 @@ order.addEventListener("change", () => {
 orderWeak.addEventListener("change", () => {
     enjoin()
 })
-
-let sectionFilterType, sectionFilterWeaknesses, categorySectionFilter;
 
 function enjoin(){
     let arrayOrder;
@@ -216,11 +228,11 @@ document.querySelector("#btn-voltar").style.display = "none";
 document.querySelector("#show-type").style.display = "none";
 document.querySelector("#show-order-weak").style.display = "none";
 
-
 let btnBack = document.getElementById("btn-voltar");
 btnBack.addEventListener("click", function(){
     document.location.reload(true);
     });
+
 
 let hidenName= document.querySelector("#section-names")  
 hidenName.addEventListener("change", () => {
@@ -326,9 +338,8 @@ for (var i = 0; i < types.length; ++i) {
     displayMedia.innerHTML += `<p>${key}: ${typesCount[key]}</p>`
   });
 
-  
-  // codigo do grafico
-  Highcharts.chart('container', {
+// codigo do grafico
+Highcharts.chart('container', {
     chart: {
       type: 'column'
     },
@@ -348,14 +359,14 @@ for (var i = 0; i < types.length; ++i) {
         text: 'Quantidade'
       }
     },
-    // tooltip: {
-    //   headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-    //   pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-    //     '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-    //   footerFormat: '</table>',
-    //   shared: true,
-    //   useHTML: true
-    // },
+    tooltip: {
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+      footerFormat: '</table>',
+      shared: true,
+      useHTML: true
+    },
     plotOptions: {
       column: {
         pointPadding: 0.2,

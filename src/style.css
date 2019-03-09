@@ -66,6 +66,34 @@
     font-weight: bold;
 }
 
+.imagem-box-weaknesses, .imagem-box-types, .imagem-box-name{
+    width: 25%;
+    margin: 3%;
+    background-color: #ffcb08;
+    text-align: right;
+
+}
+
+.order-hide{
+    text-align: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.style-selected-hide{
+    border-top-left-radius: 10px;
+    outline: none;
+    border: none;
+    color: #ffcb08;
+    font-size: 15px;
+    
+}
+
+.style-selected-hide:hover{
+    color: white; 
+    font-weight: bold;
+}
+
 .style-select-box{
     outline: none;
     border: 8px;
@@ -131,7 +159,6 @@
 .text-box-name, .text-box-types, .text-box-weaknesses, .pokemon-type, .text-type, .pokemons-type, .style-pokemons img {
     background-color: #ffcb08;
 }
-
 
 .btn-curiosities{
     display: flex;
