@@ -1,6 +1,5 @@
 *{
     margin: 0;
-    padding: 0; 
     font-family: 'Ubuntu', sans-serif;
     background-color: #2f6bb4;
 }
@@ -13,8 +12,6 @@
 .background-top{
     background-image: url("images/topo.png");
     padding: 10%;
-    margin-top: 1%;
-    margin-bottom: 1%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 30%;
@@ -23,109 +20,99 @@
 .sections-box{ 
     width: 100%;
     border: solid 2px #2f6bb4;
-    border-radius: 8px;
+    border-radius: 15px;
     padding: 2%;
-    padding-left: 2%;
-    padding-right: 2%;
+    margin: 0.3%;
     text-align: center;
     color: #2f6bb4;
     font-weight: bold;
     background-color: #ffcb08;
-    
 }
 
-.section-types2{
-    background-image: url("images/background1.jpg");
-}
-
-.imagem-box-weaknesses, .imagem-box-types, .imagem-box-name{
-    width: 25%;
-    margin: 3%;
-    background-color: #ffcb08;
-    text-align: right;
-
-}
-
-.order-hide{
-    text-align: auto;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.style-selected-hide{
-    border-top-left-radius: 10px;
-    outline: none;
-    border: none;
-    color: #ffcb08;
-    font-size: 15px;
-    
-}
-
-.style-selected-hide:hover{
-    color: white; 
-    font-weight: bold;
+.section-types-background{
+    background-image: url("images/ceu.jpg");
+    background-color: #ecd7c6;
+    box-shadow: inset 0px 0px 200px 80px #84caf6;
+    background-size: 100%;
 }
 
 .imagem-box-weaknesses, .imagem-box-types, .imagem-box-name{
     width: 25%;
-    margin: 3%;
+    margin: 0.5%;
     background-color: #ffcb08;
-    text-align: right;
-
 }
 
-.order-hide{
-    text-align: auto;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+.two-selects{
+    display: flex;
+    justify-content: space-around;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.order-hide select{
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;  
 }
 
 .style-selected-hide{
-    border-top-left-radius: 10px;
+    color: white;
     outline: none;
     border: none;
-    color: #ffcb08;
-    font-size: 15px;
-    
+    font-size: 15px; 
+}
+
+.style-selected-hide select{
+    overflow: scroll;
 }
 
 .style-selected-hide:hover{
-    color: white; 
-    font-weight: bold;
+    color:#ffcb08;
+    cursor: pointer;
 }
 
 .style-select-box{
     outline: none;
-    border: 8px;
-    padding: 8px;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    background-color: #2f6bb4;
+    border: none;
+    padding: 5px;
     color: #ffcb08;
     font-size: 18px;
-    font-weight: bold;
-    width: 100%;
-    text-align-last: center;
+    font-weight: bold;  
 }
 
 .style-select-box:hover{
     color: white;  
+    cursor: pointer;
 }
 
 .text-name{
     color: white;
-
 }
 
 .text-name:hover{
     color: #ffcb08;
 }
 
+#names-pokemon{
+    width: 100%;
+    text-align-last: center;
+    border-radius: 12px;   
+}
+
 .style-name{
-    background-color: #ffcb08;
-    color: #ffcb08;
-    padding: 5px;
-    border-radius: 8px;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 12px;   
+}
+
+.style-name p{
+    background-color: #84caf6;
+    padding: 0.5%;   
+}
+
+.style-name img{
+    width: 8%;
+    background-color: transparent;
 }
 
 .style-pokemons{
@@ -134,30 +121,27 @@
     justify-content: center;
     background-color: transparent;
     color: #ffcb08;
-    border-radius: 8px;
-    
+    border-radius: 8px; 
 }
 
 .style-pokemons p{
     margin: 2%;
-    background-color: #ffcb08;
+    background-color: #84caf6;
     color: #2f6bb4;
-    
 }
 
 
 .pokemons-type{
-    border: solid 3px #2f6bb4;
-    border-radius: 8px; 
-    margin: 3%
+    border: solid 3px #08224e;
+    border-radius: 15px; 
+    margin: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: #84caf6;
 }
 
-.pokemons-type h3{
-    border: solid 5px #2f6bb4;
-}
-
-.text-box-name, .text-box-types, .text-box-weaknesses, .pokemon-type, .text-type, .pokemons-type, .style-pokemons img {
-    background-color: #ffcb08;
+.text-box-name, .text-box-types, .text-box-weaknesses,.pokemon-type, .style-pokemons img, .text-type {
+    background-color: transparent;   
 }
 
 .btn-curiosities{
@@ -166,53 +150,72 @@
     width: 100%
 }
 
-.btn-curiosities-style{
-    border: solid 2px #2f6bb4;
-    border-bottom-color: #ffcb08;
-    margin: 1%;
-    color: #ed1c24;
+.btn-curiosities-style{ 
+    border: none;
+    padding: 7%;
+    color: #2f6bb4;
+    text-align: center;
     font-weight: bold;
-    font-size: 20px; 
+    font-size: 18px; 
+    width: 40%;
+    background-image: url("images/ditto.png");
+    background-repeat: no-repeat;
+    background-size: 45%;
+    background-position: center;
 }
 
 .btn-curiosities-style:hover{
-    color: #ffcb08;
-    border-bottom-color: #ed1c24;
-    font-size: 22px;
+    background-size: 48%;
+    font-size: 19px; 
+    color: #08224e;
+    cursor: pointer;
 }
 
 .btn-final{
     display: flex;
     justify-content: space-around;
-    width: 100%;
-    margin: 5px;
+    margin: 10px;
+    font-weight: bold;
 }
 
 .button-style{
     border-radius: 10px;
-    padding: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
     background-color: #ed1c24;
-    color: #ffcb08;
+    color: white;
     border: none;
-    outline: none;
-    font-weight: bold;
+    outline: none; 
 }
 
 .button-style:hover{
     color: #2f6bb4;
     background-color: #ffcb08; 
+    font-weight: bold;
 }
 
 .style-label{
-    color: black;
+    margin: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #2f6bb4;
+    background-color: transparent;  
 }
 
 .result-pokemons-found{
-    color: black;
+    color: white;
+    padding: 0.5%;
+    text-align: center;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .style-container-curiosities{
-min-width: 310px;
-height: 400px;
-margin: 0 auto;
-}
+    min-width: 310px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    width: 99%; 
+}   
