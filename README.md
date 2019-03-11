@@ -26,19 +26,23 @@ O projeto foi desenvolvido pela dupla **Fabiane Albuquerque** e **Vanessa Yoshid
 
 # Definição do Produto
 1. Persona
+
 A nossa persona é uma **jogadora de Pokémon Go** chamada *Maggie Greene*, tem 27 anos, solteira e adora animes, jogos e seriados. Ela trabalha como projetista de móveis planejados. Desde pequena gostava muito de assistir Pokémon, e quando soube que poderia sair caçando pokémons, ela adorou a idéia e se apaixonou pelo jogo. Além de que ela possui um Nintendo Switch, e descobriu que pode transferir seus pokémons do Pokémon Go para o Nintendo Switch. Agora o problema que ela está tendo é saber qual pokémon usar em uma batalha de Raid, pois precisa saber qual a fraqueza do seu oponente (contra qual tipo ele sofre mais dano). E sabendo o tipo de pokémon que deve usar, precisa saber quais os pokémons precisa usar.
 
 2. Usuários
+
 O nosso público-alvo são jogadores de *Pokémon Go* assim como a Maggie, que *lutam em ginásios ou Raids* e precisam saber qual pokémon usar na batalha.
 Chegamos nesse tipo de persona, pois investigamos quais eram as reais necessidades dos jogadores, e descobrimos que existem algumas dificuldades em saber qual pokémon usar contra o oponente. Essa investigação ocorreu por meio de entrevistas com jogares reais.
 
 3. Como funciona o Web Site
+
 * Na primeira seção (que está lado esquerdo) você pode escolher um pokémon por nome e visualizar todos os dados dele.
 * Na segunda seção (que está no centro) você pode escolher um tipo de pokémon e vizualizar todos os pokémons desse tipo. Você pode ordená-los de A à Z, de Z à A ou por Número da Pokédex. 
 * Na terceira seção (que está do lado direito) você pode filtrar os pokémons pela sua fraqueza, por exemplo: Filtrar todos os pokémons que são fracos contra pokémons de água. E dentro dessa seção você também pode ordená-los.
 * Como adicional, você também pode vizualizar no botão *Mais informações* um gráfico que mostra o total de pokémon para cada tipo, e ver qual tipo tem mais pokémons.
 
 4. Benefícios de utilizar o site
+
 Quando você for batalhar em uma Raid, entre no site e veja as informações do pokémon que você vai batalhar. Assim você saberá contra quais tipos ele é fraco.
 Você pode filtrar por esse tipo e ver se você tem algum desses pokémons para usar contra o oponente.
 E também se você quiser saber quais os pokémons que são fracos contra o seu pokémon, você pode descobrir na seção de fraquezas também.
@@ -46,6 +50,7 @@ E também se você quiser saber quais os pokémons que são fracos contra o seu 
 # Desenho da interface do Usuário
 
 1. Protótipo 
+
 Primeiramente fizemos vários esboços com lápis e papel, depois passamos a limpo para folhas próprias de esboço com mais detalhes de botões e cores. 
 
 Segue abaixo a ultima versão do protótipo em papel:
@@ -56,6 +61,7 @@ Ultima versao do Marvel:
 [Link do prototipo de média fidelidade](https://marvelapp.com/1dbi5fdg/screen/54087041)
 
 2. Teste de Usabilidade
+
 Com o teste de usabilidade pudemos perceber que as cores não estavam correspondendo as espectativas dos usuários, então tivemos que remodelar as cores. E também descobrimos que seria interessante colocar o total de pokémons apresentados nas telas de tipos e de fraquezas. Mas felizmente não precisaram de grandes alterações, pois planejamos bastante em como deixar o mais fácil possível de vizualizar os dados.
 
 
