@@ -44,19 +44,21 @@ Você pode filtrar por esse tipo e ver se você tem algum desses pokémons para 
 E também se você quiser saber quais os pokémons que são fracos contra o seu pokémon, você pode descobrir na seção de fraquezas também.
 
 # Desenho da interface do Usuário
-1. Protótipo
-Primeiramente fizemos um esboço com lápis e papel, depois passamos a limpo para folhas próprias de esboço com mais detalhes de botões. 
+
+1. Protótipo 
+Primeiramente fizemos vários esboços com lápis e papel, depois passamos a limpo para folhas próprias de esboço com mais detalhes de botões e cores. 
 
 Segue abaixo a ultima versão do protótipo em papel:
 ![Imagem do prototipo feito em papel](src/images/prototipo.jpg)
 
 Apos efetuarmos algumas alteracoes para melhoria da interface, criamos o prototipo de media fidelidade através do aplicativo Marvel.
 Ultima versao do Marvel:
-[Link de um prototipo de media fidelidade feito pelo app Marvel](https://marvelapp.com/1dbi5fdg/screen/54087041)
-
+[Link do prototipo de média fidelidade](https://marvelapp.com/1dbi5fdg/screen/54087041)
 
 2. Teste de Usabilidade
 Com o teste de usabilidade pudemos perceber que as cores não estavam correspondendo as espectativas dos usuários, então tivemos que remodelar as cores. E também descobrimos que seria interessante colocar o total de pokémons apresentados nas telas de tipos e de fraquezas. Mas felizmente não precisaram de grandes alterações, pois planejamos bastante em como deixar o mais fácil possível de vizualizar os dados.
+
+
 
 #### Curiosidades sobre o jogo
 Batalhas em Pokémon GO acontecem nos Ginásios. Não importa se você está tentando conquistar um ginásio inimigo ou apenas treinando em um ginásio aliado, ou até mesmo lutando em uma Raid. Você precisa saber do básico:
