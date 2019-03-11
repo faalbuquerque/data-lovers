@@ -210,3 +210,9 @@
 .result-pokemons-found{
     color: black;
 }
+
+.style-container-curiosities{
+min-width: 310px;
+height: 400px;
+margin: 0 auto;
+}
