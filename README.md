@@ -56,8 +56,8 @@ Primeiramente fizemos vários esboços com lápis e papel, depois passamos a lim
 Segue abaixo a ultima versão do protótipo em papel:
 ![Imagem do prototipo feito em papel](src/images/prototipo.jpg)
 
-Apos efetuarmos algumas alteracoes para melhoria da interface, criamos o prototipo de media fidelidade através do aplicativo Marvel.
-Ultima versao do Marvel:
+Apos efetuarmos algumas alteracões para melhoria da interface, criamos o prototipo de media fidelidade através do aplicativo Marvel.
+
 [Link do prototipo de média fidelidade](https://marvelapp.com/1dbi5fdg/screen/54087041)
 
 2. Teste de Usabilidade
