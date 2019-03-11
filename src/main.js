@@ -3,6 +3,7 @@ window.onload = () => {
     selectedPokemon();
     showTypePokemon(selectType);
     showTypePokemon(selectWeaknesses);
+    hideScreenNone();
 }
 
 let namesPokemon = document.querySelector("#names-pokemon");
@@ -79,7 +80,7 @@ let showTypePokemon = (category) => {
         category.innerHTML += `
             <option value="${arrayType[i]}" class="list-pokemon">
              ${arrayType[i]}
-            </option>    
+            </option>
         `
     }
 }
@@ -197,7 +198,7 @@ let showPokemon = (pokemon, tagById) => {
     tagById.innerHTML += `
                 <section class="pokemons-type">
                     <div class="pokemon-type">
-                        <img src="${pokemon.img}" class="poke-photo" />   
+                        <img src="${pokemon.img}" class="poke-photo" />
                         <div class="text-name">
                             <h3 class="poke-name">${pokemon.name}</h3>
                         </div>
@@ -209,26 +210,33 @@ let showPokemon = (pokemon, tagById) => {
                             <p> Fraquezas: ${pokemon.weaknesses.join(", ")}</p>
                             <p> Próxima(s) Evolução(ões): ${nextEvolution}</p>
                         </div>
-                    </div> 
-                </section>        
+                    </div>
+                </section>
                 `
 }
 
-document.querySelector("#btn-voltar").style.display = "none";
-document.querySelector("#show-type").style.display = "none";
-document.querySelector("#show-order-weak").style.display = "none";
-document.querySelector("#container").style.display = "none";
+//criei uma funcao para todas as telas que devem comecar como "none" pq juntaram muitas tbm
+
+let hideScreenNone = () => {
+    let items = ["#btn-voltar", "#show-type", "#show-order-weak", "#container", "#count-type", "#count-weaknesses", "#label-names", "#label-types", "#label-weaknesses"];
+    for (item of items){
+        document.querySelector(item).style.display = "none";
+    }
+}
+
+
 document.querySelector("#btn-curiosities").style.display = "block";
 
 let btnBack = document.querySelector("#btn-voltar");
 btnBack.addEventListener("click", () => {
     document.location.reload(true);
-    });
+});
 
 let hidenName = document.querySelector("#section-names");
 hidenName.addEventListener("change", () => {
     hideScreenName();
-    });
+});
+
 
 let hideScreenName = () => {
     selectType.style.display = "none";
@@ -237,14 +245,15 @@ let hideScreenName = () => {
         document.querySelector(item).style.display = "none";
     }
     document.querySelector("#btn-voltar").style.display = "block";
+    document.querySelector("#section-names").classList.add("section-types-background");
+    document.querySelector("#label-names").style.display = "block";
 }
-
 
 selectType.addEventListener("change", () => {
     sectionFilterType = selectedPokemonFrom("type", selectType, displayType);
     categorySectionFilter = "type";
     hideScreenType();
-    });
+});
 
 selectWeaknesses.addEventListener("change", () => {
     sectionFilterWeaknesses = selectedPokemonFrom("weaknesses", selectWeaknesses, displayWeaknesses);
@@ -259,7 +268,9 @@ let hideScreenType = () => {
     }
     document.querySelector("#show-type").style.display = "block";
     document.querySelector("#btn-voltar").style.display = "block";
-    document.querySelector("#section-types").classList.add("section-types2");
+    document.querySelector("#section-types").classList.add("section-types-background");
+    document.querySelector("#count-type").style.display = "block";
+    document.querySelector("#label-types").style.display = "block";
 }
 
 let hideScreenWeaknesses = () => {
@@ -269,15 +280,16 @@ let hideScreenWeaknesses = () => {
     }
     document.querySelector("#show-order-weak").style.display = "block";
     document.querySelector("#btn-voltar").style.display = "block";
+    document.querySelector("#section-weaknesses").classList.add("section-types-background");
+    document.querySelector("#count-weaknesses").style.display = "block";
+    document.querySelector("#label-weaknesses").style.display = "block";
 }
-
-document.querySelector("#container").style.display = "none";
 
 //funcoes de tela da parte de curiosidades:
 let curiosities = document.querySelector(".btn-curiosities");
 curiosities.addEventListener("click", () => {
     hideScreenAll();
-    });
+});
 
 let hideScreenAll = () => {
     document.querySelector("#container").style.display = "block";
@@ -289,7 +301,6 @@ let hideScreenAll = () => {
     document.querySelector("#btn-voltar").style.display = "block";
 }
 
-//Logica do grafico
 
 const types = [];
 
@@ -306,7 +317,7 @@ for (var i = 0; i < types.length; ++i) {
       typesCount[types[i]] = 0;
     }
     ++typesCount[types[i]];
-  }
+}
 
 let typesPokemons = [];
 typesPokemons = Object.keys(typesCount);
@@ -314,7 +325,7 @@ typesPokemons = Object.keys(typesCount);
 let countTypes = [];
 countTypes = Object.values(typesCount);
 
-// codigo do grafico
+
 Highcharts.chart('container', {
     chart: {
       type: 'column'

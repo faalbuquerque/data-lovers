@@ -11,52 +11,58 @@
     <header class= "background-top"></header>
       <main class="container">
         <section id= "section-names" class="sections-box">
-          <label class="style-label"> Selecione o nome do Pokémon </label>
+          <label class="style-label" id="label-names"> Selecione o nome do Pokémon </label>
           <select id="names-pokemon" class="style-select-box">
-            <option class="title-select" value="">Escolha por nome</option>
+            <option class="title-select" selected disabled value="">Escolha por nome</option>
           </select>
           <p id="display-name" class="style-name"></p>
           <img src="images/snorlax.png" class="imagem-box-name">
           <p class="text-box-name">
-            Nesse filtro é possivel escolher um pokémon por nome.
+            Nesse filtro é possivel escolher um Pokémon por nome e visualizar todas as suas informacoes.
           </p>
         </section>
-
         <section id= "section-types" class="sections-box">
-          <label class="style-label"> Selecione por Tipo </label>
-          <select id="select-type" class="style-select-box">
-            <option class="title-select" value="">Escolha por tipo</option>
-          </select>
-          <div id="show-type" class="order">
-            <select id="order" class="style-selected">
-              <option>Ordenar por:</option>
-              <option class="order-name" value="name-A-Z">Ordenar de A-Z</option>
-              <option class="desorder-name" value="name-Z-A">Ordenar de Z-A</option>
-              <option class="order-id" value="id">Nº da Pokédex #</option>
-            </select>
+        <label class="style-label" id="label-types"> Selecione por Tipo </label>
+        <div class="two-selects">
+          <div id="count-type">
+              <p class="result-pokemons-found"><span id="pokemons-found-type"></span> pokémons filtrados por esse tipo</p>
           </div>
-          <p class="result-pokemons-found"><span id="pokemons-found-type"></span> pokémons filtrados por esse tipo</p>
+          <select id="select-type" class="style-select-box">
+            <option class="title-select" selected disabled value="">Escolha por tipo</option>
+          </select>
+          <div id="show-type" class="order-hide">
+              <select id="order" class="style-selected-hide">
+                <option>Ordenar por:</option>
+                <option class="order-name" value="name-A-Z">Ordenar de A-Z</option>
+                <option class="desorder-name" value="name-Z-A">Ordenar de Z-A</option>
+                <option class="order-id" value="id">Nº da Pokédex #</option>
+              </select>
+          </div>
+        </div>
           <p id="display-type" class="style-pokemons"></p>
           <img src="images/pikachu.png" class="imagem-box-types">
           <p class="text-box-types">
-            Neste filtro serão listados todos os pokémons por tipo.
-          </p> 
+            Neste filtro serão listados todos os Pokémons por tipo.
+          </p>
         </section>
-
         <section id="section-weaknesses" class="sections-box">
-          <label class="style-label"> Selecione por fraquezas </label>
-          <select id="select-weaknesses" class="style-select-box">
-            <option class="title-select" value="">Escolha por fraquezas</option>
-          </select>
-          <div id="show-order-weak" class="order">
-            <select id="order-weak" class="style-selected">
-              <option>Ordenar por:</option>
-              <option class="order-name" value="name-A-Z">Ordenar de A-Z</option>
-              <option class="desorder-name" value="name-Z-A">Ordenar de Z-A</option>
-              <option class="order-id" value="id">Nº da Pokédex #</option>
+        <label class="style-label" id="label-weaknesses"> Selecione por fraquezas </label>
+          <div class="two-selects">
+            <div id="count-weaknesses">
+              <p class="result-pokemons-found"><span id="pokemons-found-weaknesses"></span> pokémons tem fraqueza contra esse tipo. </p>
+            </div>
+            <select id="select-weaknesses" class="style-select-box">
+                <option class="title-select"  selected disabled value="">Escolha por fraquezas</option>
             </select>
+            <div id="show-order-weak" class="order-hide">
+              <select id="order-weak" class="style-selected-hide">
+                <option>Ordenar por:</option>
+                <option class="order-name" value="name-A-Z">Ordenar de A-Z</option>
+                <option class="desorder-name" value="name-Z-A">Ordenar de Z-A</option>
+                <option class="order-id" value="id">Nº da Pokédex #</option>
+              </select>
+            </div>
           </div>
-          <p class="result-pokemons-found"><span id="pokemons-found-weaknesses"></span> pokémons filtrados que tem fraqueza contra esse tipo. </p>
           <p id="display-weaknesses" class="style-pokemons"></p>
           <img src="images/jigglypuff.png" class="imagem-box-weaknesses">
           <p class="text-box-weaknesses">
@@ -64,19 +70,15 @@
           </p>
         </section>
       </main>
-
       <footer id="curiosities">
-          <div id="container" class="style-container-curiosities">
-          </div>
-          <div class= "btn-curiosities">
-            <button id="btn-curiosities" class="btn-curiosities-style"> Curiosidades</button>
-          </div>
-        </footer>
-
+        <div id="container" class="style-container-curiosities"></div>
+      </footer>
+      <div class= "btn-curiosities">
+          <button id="btn-curiosities" class="btn-curiosities-style"> Mais Informações...</button>
+        </div>
       <div class= "btn-final">
-        <button id= "btn-voltar" class="button-style">Voltar</button>
+          <button id= "btn-voltar" class="button-style">Voltar</button>
       </div>
-      
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
