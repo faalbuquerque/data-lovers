@@ -104,7 +104,7 @@ let selectedPokemonFrom = (categorySelect, dataSelect, displayTag) => {
         (pokemon) => {
             let typeFilter = pokemon[categorySelect].filter(
                 (type) => {
-                    return type === dataSelect.value;
+                    return type === dataSelect.value; 
                 }
             );
             if(typeFilter.length > 0){

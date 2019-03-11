@@ -8,8 +8,6 @@
 * [Autoria](#Autoria)
 * [Definição do Produto](#Definição-do-produto)
 * [Desenho da interface do Usuário](#Desenho-da-interface-do-Usuário)
-* [Protótipo](#Protótipo)
-* [Teste de Usabilidade](#Teste-de-Usabilidade)
 * [Curiosidades sobre o jogo](#Curiosidades-sobre-o-jogo)
 * [Escolhendo seu Pokémon](#Escolhendo-seu-Pokémon)
 
@@ -40,10 +38,11 @@ Chegamos nesse tipo de persona, pois investigamos quais eram as reais necessidad
 
 4. Benefícios de utilizar o site
 Quando você for batalhar em uma Raid, entre no site e veja as informações do pokémon que você vai batalhar. Assim você saberá contra quais tipos ele é fraco.
+![Poliwrath](src/images/pokemon-raid.jpg)
 Você pode filtrar por esse tipo e ver se você tem algum desses pokémons para usar contra o oponente.
 E também se você quiser saber quais os pokémons que são fracos contra o seu pokémon, você pode descobrir na seção de fraquezas também.
 
-# Desenho da interface do Usuário
+## Desenho da interface do Usuário
 1. Protótipo
 Primeiramente fizemos um esboço com lápis e papel, depois passamos a limpo para folhas próprias de esboço com mais detalhes de botões. E para fazer as iterações foi usado fotos desse protótipo no Marvel.
 Abaixo estão algumas fotos do protótipo:

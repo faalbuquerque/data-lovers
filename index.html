@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Data Lovers</title>
-    <link rel="icon" href="images/icone.png">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="src/images/icone.png">
+    <link rel="stylesheet" href="src/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet">
   </head>
   <body>
@@ -13,10 +13,10 @@
         <section id= "section-names" class="sections-box">
           <label class="style-label"> Selecione o nome do Pokémon </label>
           <select id="names-pokemon" class="style-select-box">
-            <option class="title-select" value="">Escolha por nome</option>
+            <option class="title-select" selected disabled>Escolha por nome</option>
           </select>
           <p id="display-name" class="style-name"></p>
-          <img src="images/snorlax.png" class="imagem-box-name">
+          <img src="src/images/snorlax.png" class="imagem-box-name">
           <p class="text-box-name">
             Nesse filtro é possivel escolher um pokémon por nome.
           </p>
@@ -25,11 +25,11 @@
         <section id= "section-types" class="sections-box">
           <label class="style-label"> Selecione por Tipo </label>
           <select id="select-type" class="style-select-box">
-            <option class="title-select" value="">Escolha por tipo</option>
+            <option class="title-select" selected disabled>Escolha por tipo</option>
           </select>
           <div id="show-type" class="order">
             <select id="order" class="style-selected">
-              <option>Ordenar por:</option>
+              <option selected disabled>Ordenar por:</option>
               <option class="order-name" value="name-A-Z">Ordenar de A-Z</option>
               <option class="desorder-name" value="name-Z-A">Ordenar de Z-A</option>
               <option class="order-id" value="id">Nº da Pokédex #</option>
@@ -37,7 +37,7 @@
           </div>
           <p class="result-pokemons-found"><span id="pokemons-found-type"></span> pokémons filtrados por esse tipo</p>
           <p id="display-type" class="style-pokemons"></p>
-          <img src="images/pikachu.png" class="imagem-box-types">
+          <img src="src/images/pikachu.png" class="imagem-box-types">
           <p class="text-box-types">
             Neste filtro serão listados todos os pokémons por tipo.
           </p> 
@@ -46,11 +46,11 @@
         <section id="section-weaknesses" class="sections-box">
           <label class="style-label"> Selecione por fraquezas </label>
           <select id="select-weaknesses" class="style-select-box">
-            <option class="title-select" value="">Escolha por fraquezas</option>
+            <option class="title-select" selected disabled>Escolha por fraquezas</option>
           </select>
           <div id="show-order-weak" class="order">
             <select id="order-weak" class="style-selected">
-              <option>Ordenar por:</option>
+              <option selected disabled>Ordenar por:</option>
               <option class="order-name" value="name-A-Z">Ordenar de A-Z</option>
               <option class="desorder-name" value="name-Z-A">Ordenar de Z-A</option>
               <option class="order-id" value="id">Nº da Pokédex #</option>
@@ -58,7 +58,7 @@
           </div>
           <p class="result-pokemons-found"><span id="pokemons-found-weaknesses"></span> pokémons filtrados que tem fraqueza contra esse tipo. </p>
           <p id="display-weaknesses" class="style-pokemons"></p>
-          <img src="images/jigglypuff.png" class="imagem-box-weaknesses">
+          <img src="src/images/jigglypuff.png" class="imagem-box-weaknesses">
           <p class="text-box-weaknesses">
             Neste filtro serão listados todos os pokémons que tem fraqueza pelo tipo selecionado. Ou seja, se você selecionar Water, ele mostrará todos os pokémons fracos contra água.
           </p>
@@ -80,7 +80,8 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="./data/pokemon/pokemon.js"></script>
-    <script src="main.js"></script>
+    <script src="src/data/pokemon/pokemon.js"></script>
+    <script src="src/main.js"></script>
+    <script src="src/tests.js"></script>
   </body>
 </html>
