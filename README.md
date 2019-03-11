@@ -4,17 +4,17 @@
 ## Índice
 
 * [Resumo do Projeto](#Resumo-do-Projeto)
-* [Linguagem de programação](#Linguagem-de-programacao)
+* [Linguagem de programação](#Linguagem-de-programação)
 * [Autoria](#Autoria)
-* [Definição do Produto](#Definicao-do-produto)
-* [Desenho da interface do Usuário](#Desenho-da-interface-do-usuario)
-* [Protótipo](#Prototipo)
-* [Teste de Usabilidade](#Teste-de-usabilidade)
+* [Definição do Produto](#Definição-do-produto)
+* [Desenho da interface do Usuário](#Desenho-da-interface-do-Usuário)
+* [Protótipo](#Protótipo)
+* [Teste de Usabilidade](#Teste-de-Usabilidade)
 * [Curiosidades sobre o jogo](#Curiosidades-sobre-o-jogo)
-* [Escolhendo seu Pokémon](#Escolhendo-seu-pokemon)
+* [Escolhendo seu Pokémon](#Escolhendo-seu-Pokémon)
 
 
-# Resumo do Projeto
+## Resumo do Projeto
 O Data Lovers é um projeto que foi estipulado pela Laboratória com o intuito de desenvolvermos uma página web que visualizasse um conjunto de dados. 
 Nossa dupla escolheu o tema <b>Pokemón Go</b>, onde recebemos uma lista com 151 pokemóns da região de Kanto, que continham vários dados sobre cada pokemón, e precisávamos mostrar esses dados na tela de uma forma fácil de entender, e que fosse possível filtrar e ordenar os dados. E fazer algum tipo de cálculo agregado.
 
@@ -24,7 +24,7 @@ Essa página foi desenvolvida em JavaScript, HTML e Css. Não foi utilizado fram
 ## Autoria
 O projeto foi desenvolvido pela dupla **Fabiane Albuquerque** e **Vanessa Yoshida**.
 
-#Definição do Produto
+## Definição do Produto
 1. Persona
 A nosso persona é uma **jogadora de Pokémon Go** chamada *Maggie Greene*, tem 27 anos, solteira e adora animes, jogos e seriados. Ela trabalha como projetista de móveis planejados. Desde pequena gostava muito de assistir Pokémon, e quando soube que poderia sair caçando pokémons, ela adorou a idéia e se apaixonou pelo jogo. Além de que ela possui um Nintendo Switch, e descobriu que pode transferir seus pokémons do Pokémon Go para o Nintendo Switch. Agora o problema que ela está tendo é saber qual pokémon usar em uma batalha de Raid, pois precisa saber qual a fraqueza do seu oponente (contra qual tipo ele sofre mais dano). E sabendo o tipo de pokémon que deve usar, precisa saber quais os pokémons precisa usar.
 
