@@ -58,7 +58,7 @@ let selectedPokemon = () => {
             <p>Candy: ${pokemon.candy}</p>
             <p>Quantidade de Candys: ${pokemon.candy_count}</p>
             <p>Ovo: ${pokemon.egg}</p>
-            <p>Chance de encontrar: ${pokemon.spawn_chance}</p>
+            <p>Chance de Spawn: ${pokemon.spawn_chance}</p>
             <p>AVG Spawns: ${pokemon.avg_spawns}</p>
             <p>Encontrar jogadores: ${pokemon.spawn_time}</p>
             <p>Multiplicadores: ${pokemon.multipliers}</p>
@@ -209,7 +209,7 @@ let showPokemon = (pokemon, tagById) => {
                             <p> Nº Pokedex: #${pokemon.num}</p>
                             <p class="poke-type"> Tipo: ${pokemon.type.join(", ")}</p>
                             <p> Qtd de Candys para evoluir: ${pokemon.candy_count}</p>
-                            <p>Chance de encontrar: ${pokemon.spawn_chance}</p>
+                            <p>Chance de Spawn: ${pokemon.spawn_chance}</p>
                             <p> Fraquezas: ${pokemon.weaknesses.join(", ")}</p>
                             <p> Próxima(s) Evolução(ões): ${nextEvolution}</p>
                         </div>
