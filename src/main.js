@@ -44,11 +44,13 @@ let selectedPokemon = () => {
     let pokemonId = namesPokemon.options[namesPokemon.selectedIndex].value;
     let result = POKEMON["pokemon"].filter(pokemon => pokemon.id == pokemonId);
     let nextEvolution = result.map((pokemon) => {return pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : "Sem evolução"});
+
     showPokemon.innerHTML= ""
     showPokemon.innerHTML+= `
         ${result.map( pokemon => `
-            <img src="${pokemon.img}">
-            <p>Nome: ${pokemon.name}</p>
+        <div class="pokemon-names">
+            <img class="poke-photo" src="${pokemon.img}">
+            <h3 class="poke-name">${pokemon.name}</h3>
             <p>Nº Pokedex: #${pokemon.num}</p>
             <p>Tipo: ${pokemon.type}</p>
             <p>Altura: ${pokemon.height}</p>
@@ -62,6 +64,7 @@ let selectedPokemon = () => {
             <p>Multiplicadores: ${pokemon.multipliers}</p>
             <p>Fraquezas: ${pokemon.weaknesses}</p>
             <p>Proxima evolucao: ${nextEvolution} </p>
+        </div>
         `).join("")}
     `
 }
@@ -215,15 +218,12 @@ let showPokemon = (pokemon, tagById) => {
                 `
 }
 
-//criei uma funcao para todas as telas que devem comecar como "none" pq juntaram muitas tbm
-
 let hideScreenNone = () => {
-    let items = ["#btn-voltar", "#show-type", "#show-order-weak", "#container", "#count-type", "#count-weaknesses", "#label-names", "#label-types", "#label-weaknesses"];
+    let items = ["#btn-voltar", "#btn-initial", "#show-type", "#show-order-weak", "#container", "#count-type", "#count-weaknesses", "#label-names", "#label-types", "#label-weaknesses"];
     for (item of items){
         document.querySelector(item).style.display = "none";
     }
 }
-
 
 document.querySelector("#btn-curiosities").style.display = "block";
 
@@ -232,11 +232,15 @@ btnBack.addEventListener("click", () => {
     document.location.reload(true);
 });
 
+let btnBackInital = document.querySelector("#btn-initial");
+btnBackInital.addEventListener("click", () => {
+    document.location.reload(true);
+});
+
 let hidenName = document.querySelector("#section-names");
 hidenName.addEventListener("change", () => {
     hideScreenName();
 });
-
 
 let hideScreenName = () => {
     selectType.style.display = "none";
@@ -244,7 +248,7 @@ let hideScreenName = () => {
     for (item of items){
         document.querySelector(item).style.display = "none";
     }
-    document.querySelector("#btn-voltar").style.display = "block";
+    document.querySelector("#btn-initial").style.display = "block";
     document.querySelector("#section-names").classList.add("section-types-background");
     document.querySelector("#label-names").style.display = "block";
 }
@@ -268,6 +272,7 @@ let hideScreenType = () => {
     }
     document.querySelector("#show-type").style.display = "block";
     document.querySelector("#btn-voltar").style.display = "block";
+    document.querySelector("#btn-initial").style.display = "block";
     document.querySelector("#section-types").classList.add("section-types-background");
     document.querySelector("#count-type").style.display = "block";
     document.querySelector("#label-types").style.display = "block";
@@ -280,12 +285,12 @@ let hideScreenWeaknesses = () => {
     }
     document.querySelector("#show-order-weak").style.display = "block";
     document.querySelector("#btn-voltar").style.display = "block";
+    document.querySelector("#btn-initial").style.display = "block";
     document.querySelector("#section-weaknesses").classList.add("section-types-background");
     document.querySelector("#count-weaknesses").style.display = "block";
     document.querySelector("#label-weaknesses").style.display = "block";
 }
 
-//funcoes de tela da parte de curiosidades:
 let curiosities = document.querySelector(".btn-curiosities");
 curiosities.addEventListener("click", () => {
     hideScreenAll();
@@ -298,7 +303,7 @@ let hideScreenAll = () => {
     for (item of items){
         document.querySelector(item).style.display = "none";
     }
-    document.querySelector("#btn-voltar").style.display = "block";
+    document.querySelector("#btn-initial").style.display = "block";
 }
 
 
@@ -310,7 +315,6 @@ POKEMON.pokemon.map(pokemon => pokemon.type).map(item =>
     }))
 
 const typesCount = {};
-
 
 for (var i = 0; i < types.length; ++i) {
     if (!typesCount[types[i]]) {
