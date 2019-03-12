@@ -14,6 +14,7 @@ let displayWeaknesses = document.querySelector("#display-weaknesses");
 let order = document.querySelector("#order");
 let orderWeak = document.querySelector("#order-weak");
 
+
 let getOrderedPokemonByNames = () => {
     return POKEMON.pokemon.sort((a, b) => {
         if (a.name > b.name){
@@ -44,6 +45,13 @@ let selectedPokemon = () => {
     let pokemonId = namesPokemon.options[namesPokemon.selectedIndex].value;
     let result = POKEMON["pokemon"].filter(pokemon => pokemon.id == pokemonId);
     let nextEvolution = result.map((pokemon) => {return pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : "Sem evolução"});
+    let multipliers = result.map((pokemon) => {return pokemon["multipliers"]===null ? "Sem multiplicadores" : pokemon["multipliers"][0] + " e " + pokemon["multipliers"][1] });
+    let candys = result.map((pokemon) => {return pokemon["candy"]==="None" ? "Não possui candys" : pokemon["candy"]});
+
+    //let candysCount = result.map((pokemon) => {return pokemon["candy"]==="None" ? "Não possui candys" : pokemon["candy"][0]});
+
+   
+
 
     showPokemon.innerHTML= ""
     showPokemon.innerHTML+= `
@@ -51,18 +59,18 @@ let selectedPokemon = () => {
         <div class="pokemon-names">
             <img class="poke-photo" src="${pokemon.img}">
             <h3 class="poke-name">${pokemon.name}</h3>
-            <p>Nº Pokedex: #${pokemon.num}</p>
+            <p><b>Nº Pokedex: </b>#${pokemon.num}</p>
             <p>Tipo: ${pokemon.type}</p>
             <p>Altura: ${pokemon.height}</p>
             <p>Peso: ${pokemon.weight}</p>
-            <p>Candy: ${pokemon.candy}</p>
+            <p>Candy: ${candys}</p>
             <p>Quantidade de Candys: ${pokemon.candy_count}</p>
             <p>Ovo: ${pokemon.egg}</p>
             <p>Chance de Spawn: ${pokemon.spawn_chance}</p>
             <p>AVG Spawns: ${pokemon.avg_spawns}</p>
             <p>Encontrar jogadores: ${pokemon.spawn_time}</p>
-            <p>Multiplicadores: ${pokemon.multipliers}</p>
-            <p>Fraquezas: ${pokemon.weaknesses}</p>
+            <p>Multiplicadores: ${multipliers}</p>
+            <p>Fraquezas: ${pokemon.weaknesses.join(", ")}</p>
             <p>Proxima evolucao: ${nextEvolution} </p>
         </div>
         `).join("")}
@@ -210,7 +218,7 @@ let showPokemon = (pokemon, tagById) => {
                             <p class="poke-type"> Tipo: ${pokemon.type.join(", ")}</p>
                             <p> Qtd de Candys para evoluir: ${pokemon.candy_count}</p>
                             <p>Chance de Spawn: ${pokemon.spawn_chance}</p>
-                            <p> Fraquezas: ${pokemon.weaknesses.join(", ")}</p>
+                            <p> Fraquezas: ${pokemon.weaknesses.join(" , ")}</p>
                             <p> Próxima(s) Evolução(ões): ${nextEvolution}</p>
                         </div>
                     </div>
@@ -369,3 +377,27 @@ Highcharts.chart('container', {
       data: countTypes
     }]
   });
+
+
+/*teste
+
+var URL = 'https://faalbuquerque.github.io/data-lovers/src/data/pokemon/pokemon.json';
+
+var pokemonsComFetch;
+
+fetch(URL, {
+    method: 'GET'
+})
+.then(function(res) {
+    console.log(res);
+    if(res.ok){
+        return res.json();    
+    }
+})
+.then( (res) => {
+//     console.log('JSON=', res);
+    window.pokemonsComFetch = res;
+});
+
+
+console.log(pokemonsComFetch);*/
