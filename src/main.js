@@ -248,6 +248,7 @@ selectType.addEventListener("change", () => {
     sectionFilterType = selectedPokemonFrom("type", selectType, displayType);
     categorySectionFilter = "type";
     hideScreenType();
+    console.log(JSON.stringify(selectType));
     });
 
 selectWeaknesses.addEventListener("change", () => {
@@ -358,3 +359,45 @@ Highcharts.chart('container', {
       data: countTypes
     }]
   });
+
+
+
+//   var parsedtxt = JSON.parse(pokemon.JSON);
+//   document.getElementById("teste").innerHTML = parsedtxt.name;
+
+// function carregarJSON(){
+//     fetch('pokemon.json')   
+//         .then(function(res) {
+//             console.log(res);
+//         })
+        // //     return res.json();
+        // // })
+        // .then(function(data) {
+        //     console.log(data);
+        // })
+// }
+
+// Object.defineProperty(exports, "__esModule", { value: true });
+// var cors = require("cors");
+
+
+// var URL = 'https://vanessayoshida.github.io/data-lovers/src/data/pokemon/pokemon.json';
+
+// var pokemonsComFetch;
+
+// fetch(URL, {
+//     method: 'GET'
+// })
+// .then(function(res) {
+//     console.log(res);
+//     if(res.ok){
+//         return res.json();    
+//     }
+// })
+// .then( (res) => {
+// //     console.log('JSON=', res);
+//     window.pokemonsComFetch = res;
+// });
+
+
+// console.log(pokemonsComFetch);
