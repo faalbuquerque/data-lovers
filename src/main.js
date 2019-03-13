@@ -23,7 +23,7 @@ window.onload = () => {
     });
 }
 
-function getPokemons(){
+let getPokemons = () => {
     return pokemonsComFetch.pokemon;
 }
 
