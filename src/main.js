@@ -65,14 +65,9 @@ let selectedPokemon = () => {
     let pokemonId = namesPokemon.options[namesPokemon.selectedIndex].value;
     let result = POKEMON["pokemon"].filter(pokemon => pokemon.id == pokemonId);
     let nextEvolution = result.map((pokemon) => {return pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : "Sem evolução"});
-
-    //let multipliers = result.map((pokemon) => {return pokemon["multipliers"]===null ? "Sem multiplicadores" : pokemon["multipliers"]});
     let multipliers = result.map((pokemon) => {return pokemon["multipliers"]===null ? "Sem multiplicadores" : pokemon["multipliers"].join(" e ")});
-
     let candys = result.map((pokemon) => {return pokemon["candy"]==="None" ? "Não possui candys" : pokemon["candy"]});
     let egg = result.map((pokemon) => {return pokemon["egg"]==="Not in Eggs" ? "Não aparece em ovos" : pokemon["egg"]});
-
-    //let candysCount = result.map((pokemon) => {return pokemon["candy_count"]===undefined ? "0" : pokemon["candy_count"]});
 
     showPokemon.innerHTML= ""
     showPokemon.innerHTML+= `
@@ -323,25 +318,6 @@ let hideScreenWeaknesses = () => {
     document.querySelector("#count-weaknesses").style.display = "block";
     document.querySelector("#label-weaknesses").style.display = "block";
 }
-
-//tentando fazer o click na imagem aparecer e sumir o conteudo
-
-/*
-function showText(msg) {
-    let text = document.querySelector(".text-type");
-    let styles = window.getComputedStyle ? getComputedStyle(text, null) : text.currentStyle;
-
-    let visibility = styles.display;
-    
-      if( visibility == 'none' ) { 
-        text.style.display = 'block';
-        text.innerHTML = "<span>" + msg + "<span>";
-      } else { 
-        text.style.display = 'none';
-        text.innerHTML = " ";
-      }
-  }
-*/
 
 
 let curiosities = document.querySelector(".btn-curiosities");
