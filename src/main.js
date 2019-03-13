@@ -35,6 +35,7 @@ let displayWeaknesses = document.querySelector("#display-weaknesses");
 let order = document.querySelector("#order");
 let orderWeak = document.querySelector("#order-weak");
 
+
 let getOrderedPokemonByNames = () => {
     return getPokemons().sort((a, b) => {
         if (a.name > b.name){
@@ -88,6 +89,7 @@ let selectedPokemon = () => {
             <p>Multiplicadores: ${multipliers}</p>
             <p>Fraquezas: ${pokemon.weaknesses.join(", ")}</p>
             <p>Próxima evolução: ${nextEvolution} </p>
+
         </div>
         `).join("")}
     `
@@ -95,6 +97,7 @@ let selectedPokemon = () => {
 
 let showTypePokemon = (category) => {
     let arrayType = [];
+
     getPokemons().map((pokemon) => { pokemon.type.map((type) => {
             if(!arrayType.includes(type)){
                 arrayType.push(type);
@@ -222,7 +225,6 @@ let showPokemon = (pokemon, tagById) => {
     let multipliers = pokemon["multipliers"]===null ? "Sem multiplicadores" : pokemon["multipliers"].join(" e ");
     let candys = pokemon["candy"]==="None" ? "Não possui candys" : pokemon["candy"];
     let egg = pokemon["egg"]==="Not in Eggs" ? "Não aparece em ovos" : pokemon["egg"];
-
 
     tagById.innerHTML += `
                 <section class="pokemons-type">

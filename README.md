@@ -75,6 +75,8 @@ Outra coisa que os usuários reclamaram foi o botão de voltar que estava no fim
 Usamos a ferramenta Trello para poder organizar as tarefas e saber em que passo que estávamos e o que faltava fazer. Essa ferramenta ajudou a organizar o tempo e as prioridades.
 [Link do Trello](https://trello.com/b/vXwPnTK7/data-lovers)
 
+
+
 #### Curiosidades sobre o jogo
 Batalhas em Pokémon GO acontecem nos Ginásios. Não importa se você está tentando conquistar um ginásio inimigo ou apenas treinando em um ginásio aliado, ou até mesmo lutando em uma Raid. Você precisa saber do básico:
 Elas acontecem em tempo real, o que demanda bastante atenção e agilidade. Para lutar, basta tocar na tela de maneira rápida e seu Pokémon atacará, você precisa dar um slide para o lado para que seu Pokémon desvie dos ataques (direita e esquerda). Desviar é fácil de explicar, mas difícil de executar.
