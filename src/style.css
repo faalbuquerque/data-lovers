@@ -298,7 +298,7 @@ body{
 @media screen and (max-width: 700px) {
     .container{
         display: block;
-        margin-top: 5%;
+        margin-top: 6%;
         width: 94.5%; 
         font-size: 15px;
     }
