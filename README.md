@@ -28,7 +28,6 @@ O projeto foi desenvolvido pela dupla **Fabiane Albuquerque** e **Vanessa Yoshid
 
 [Link do GitPages Vanessa Yoshida](https://vanessayoshida.github.io/data-lovers/)
 
-
 # Definição do Produto
 1. Persona
 

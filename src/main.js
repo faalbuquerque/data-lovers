@@ -89,7 +89,6 @@ let selectedPokemon = () => {
             <p>Multiplicadores: ${multipliers}</p>
             <p>Fraquezas: ${pokemon.weaknesses.join(", ")}</p>
             <p>Próxima evolução: ${nextEvolution} </p>
-
         </div>
         `).join("")}
     `
