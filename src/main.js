@@ -1,7 +1,6 @@
 
 window.onload = () => {
     var url = 'https://raw.githubusercontent.com/VanessaYoshida/data-lovers/master/src/data/pokemon/pokemon.json';
-
     var pokemonsComFetch;
 
     fetch(url, {
@@ -34,6 +33,7 @@ let selectWeaknesses = document.querySelector("#select-weaknesses");
 let displayWeaknesses = document.querySelector("#display-weaknesses");
 let order = document.querySelector("#order");
 let orderWeak = document.querySelector("#order-weak");
+
 
 let getOrderedPokemonByNames = () => {
     return getPokemons().sort((a, b) => {
@@ -397,4 +397,3 @@ Highcharts.chart('container', {
       data: countTypes
     }]
   });
-}

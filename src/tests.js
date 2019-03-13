@@ -1,3 +1,4 @@
+
 // if (arrayType.length === 15){
 //     console.log("Teste passou");
 // } else {
@@ -15,4 +16,3 @@
 // } else {
 //     console.log("O arrayType retornou o valor errado.");
 // }
-
