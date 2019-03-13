@@ -1,7 +1,8 @@
 window.onload = () => {
-    var url = 'https://raw.githubusercontent.com/VanessaYoshida/data-lovers/master/src/data/pokemon/pokemon.json';
+    
+    let url = 'https://raw.githubusercontent.com/VanessaYoshida/data-lovers/master/src/data/pokemon/pokemon.json';
 
-    var pokemonsComFetch;
+    let pokemonsComFetch;
 
     fetch(url, {
         method: 'GET'
@@ -22,7 +23,7 @@ window.onload = () => {
     });
 }
 
-function getPokemons(){
+let getPokemons = () => {
     return pokemonsComFetch.pokemon;
 }
 
@@ -36,7 +37,7 @@ let orderWeak = document.querySelector("#order-weak");
 
 
 let getOrderedPokemonByNames = () => {
-    return POKEMON.pokemon.sort((a, b) => {
+    return getPokemons().sort((a, b) => {
         if (a.name > b.name){
             return 1;
         }
@@ -63,7 +64,7 @@ let selectedPokemon = () => {
         selectedPokemon("name", namesPokemon, showPokemon);
     });
     let pokemonId = namesPokemon.options[namesPokemon.selectedIndex].value;
-    let result = POKEMON["pokemon"].filter(pokemon => pokemon.id == pokemonId);
+    let result = getPokemons().filter(pokemon => pokemon.id == pokemonId);
     let nextEvolution = result.map((pokemon) => {return pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : "Sem evolução"});
     let multipliers = result.map((pokemon) => {return pokemon["multipliers"]===null ? "Sem multiplicadores" : pokemon["multipliers"].join(" e ")});
     let candys = result.map((pokemon) => {return pokemon["candy"]==="None" ? "Não possui candys" : pokemon["candy"]});
@@ -75,26 +76,27 @@ let selectedPokemon = () => {
         <div class="pokemon-names">
             <img class="poke-photo" src="${pokemon.img}">
             <h3 class="poke-name">${pokemon.name}</h3>
-            <p><b>Nº Pokedex: </b>#${pokemon.num}</p>
-            <p><b>Tipo:</b> ${pokemon.type}</p>
-            <p><b>Altura: </b>${pokemon.height}</p>
+            <p><b>Nº Pokedex:</b> #${pokemon.num}</p>
+            <p><b>Tipo:</b>${pokemon.type.join(", ")}</p>
+            <p><b>Altura:</b> ${pokemon.height}</p>
             <p><b>Peso:</b> ${pokemon.weight}</p>
-            <p><b>Tipo de Candy:</b> ${candys}</p>  
+            <p><b>Tipo de Candy:</b> ${candys}</p>    
             ${pokemon.candy_count ? "<p><b>Quantidade de Candys: </b>" + pokemon.candy_count + "</p>" : ""}
-            <p><b>Ovo:</b> ${egg}</b>
-            <p><b>Chance de Spawn:</b> ${pokemon.spawn_chance}</p>
+            <p><b>Ovo:</b> ${egg}</p>
+            <p><b>Chance de Spawn: </b>${pokemon.spawn_chance}</p>
             <p><b>AVG Spawns:</b> ${pokemon.avg_spawns}</p>
-            <p><b>Encontrar jogadores:</b> ${pokemon.spawn_time}</p>
+            <p><b>Tempo de Spawn:</b> ${pokemon.spawn_time}</p>
             <p><b>Multiplicadores:</b> ${multipliers}</p>
             <p><b>Fraquezas:</b> ${pokemon.weaknesses.join(", ")}</p>
-            <p><b>Proxima evolucao:</b> ${nextEvolution} </p>
+            <p><b>Próxima evolução:</b> ${nextEvolution} </p>
         </div>
         `).join("")}
     `
 }
 
-let arrayType = [];
 let showTypePokemon = (category) => {
+    let arrayType = [];
+
     getPokemons().map((pokemon) => { pokemon.type.map((type) => {
             if(!arrayType.includes(type)){
                 arrayType.push(type);
@@ -126,7 +128,7 @@ selectWeaknesses.addEventListener("change", () => {
 
 let selectedPokemonFrom = (categorySelect, dataSelect, displayTag) => {
     displayTag.innerHTML = "";
-    let pokemonsFromType = POKEMON.pokemon.filter(
+    let pokemonsFromType = getPokemons().filter(
         (pokemon) => {
             let typeFilter = pokemon[categorySelect].filter(
                 (type) => {
@@ -231,10 +233,10 @@ let showPokemon = (pokemon, tagById) => {
                             <h3 class="poke-name">${pokemon.name}</h3>
                         </div>
                         <div class="text-type">
-                            <p><b>Nº Pokedex:</b> #${pokemon.num}</p>
+                            <p><b> Nº Pokedex:</b> #${pokemon.num}</p>
                             <p class="poke-type"><b> Tipo:</b> ${pokemon.type.join(", ")}</p>
                             <p><b>Tipo de Candy:</b> ${candys}</p>    
-                            ${pokemon.candy_count ? "<p>Quantidade de Candys: " + pokemon.candy_count + "</p>" : ""}
+                            ${pokemon.candy_count ? "<p><b>Quantidade de Candys: </b>" + pokemon.candy_count + "</p>" : ""}
                             <p><b>Ovo:</b> ${egg}</p>
                             <p><b>Chance de Spawn:</b> ${pokemon.spawn_chance}</p>
                             <p><b>Multiplicadores:</b> ${multipliers}</p>
@@ -319,7 +321,6 @@ let hideScreenWeaknesses = () => {
     document.querySelector("#label-weaknesses").style.display = "block";
 }
 
-
 let curiosities = document.querySelector(".btn-curiosities");
 curiosities.addEventListener("click", () => {
     hideScreenAll();
@@ -335,16 +336,15 @@ let hideScreenAll = () => {
     document.querySelector("#btn-initial").style.display = "block";
 }
 
-
-const typesCount = {};
-function graphic(){
+let graphic = () => {
 const types = [];
 
-POKEMON.pokemon.map(pokemon => pokemon.type).map(item =>
+getPokemons().map(pokemon => pokemon.type).map(item =>
     item.forEach(type => {
       types.push(type)
     }))
 
+const typesCount = {};
 
 for (var i = 0; i < types.length; ++i) {
     if (!typesCount[types[i]]) {
@@ -358,7 +358,6 @@ typesPokemons = Object.keys(typesCount);
 
 let countTypes = [];
 countTypes = Object.values(typesCount);
-
 
 Highcharts.chart('container', {
     chart: {
@@ -400,26 +399,3 @@ Highcharts.chart('container', {
     }]
   });
 }
-
-/*teste
-
-var URL = 'https://faalbuquerque.github.io/data-lovers/src/data/pokemon/pokemon.json';
-
-var pokemonsComFetch;
-
-fetch(URL, {
-    method: 'GET'
-})
-.then(function(res) {
-    console.log(res);
-    if(res.ok){
-        return res.json();    
-    }
-})
-.then( (res) => {
-//     console.log('JSON=', res);
-    window.pokemonsComFetch = res;
-});
-
-
-console.log(pokemonsComFetch);*/

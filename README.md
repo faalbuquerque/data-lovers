@@ -4,14 +4,14 @@
 ## Índice
 
 * [Resumo do Projeto](#Resumo-do-Projeto)
-* [Linguagem de programação](#Linguagem-de-programacao)
+* [Linguagem de programação](#Linguagem-de-programação)
 * [Autoria](#Autoria)
-* [Definição do Produto](#Definicao-do-produto)
-* [Desenho da interface do Usuário](#Desenho-da-interface-do-usuario)
-* [Protótipo](#Prototipo)
+* [Definição do Produto](#Definição-do-produto)
+* [Desenho da interface do Usuário](#Desenho-da-interface-do-Usuário)
+* [Protótipo](#Protótipo)
 * [Teste de Usabilidade](#Teste-de-usabilidade)
 * [Curiosidades sobre o jogo](#Curiosidades-sobre-o-jogo)
-* [Escolhendo seu Pokémon](#Escolhendo-seu-pokemon)
+* [Escolhendo seu Pokémon](#Escolhendo-seu-Pokémon)
 
 
 # Resumo do Projeto
@@ -22,16 +22,20 @@ Nossa dupla escolheu o tema <b>Pokemón Go</b>, onde recebemos uma lista com 151
 Essa página foi desenvolvida em JavaScript, HTML e Css. Não foi utilizado framework.
 
 ## Autoria
-O projeto foi desenvolvido pela dupla **Fabiane Albuquerque** e **Vanessa Yoshida**.
+O projeto foi desenvolvido pela dupla *Fabiane Albuquerque* e *Vanessa Yoshida*.
+
+[Link do GitPages Fabiane Albuquerque](https://faalbuquerque.github.io/data-lovers/)
+
+[Link do GitPages Vanessa Yoshida](https://vanessayoshida.github.io/data-lovers/)
 
 # Definição do Produto
 1. Persona
 
-A nossa persona é uma **jogadora de Pokémon Go** chamada *Maggie Greene*, tem 27 anos, solteira e adora animes, jogos e seriados. Ela trabalha como projetista de móveis planejados. Desde pequena gostava muito de assistir Pokémon, e quando soube que poderia sair caçando pokémons, ela adorou a idéia e se apaixonou pelo jogo. Além de que ela possui um Nintendo Switch, e descobriu que pode transferir seus pokémons do Pokémon Go para o Nintendo Switch. Agora o problema que ela está tendo é saber qual pokémon usar em uma batalha de Raid, pois precisa saber qual a fraqueza do seu oponente (contra qual tipo ele sofre mais dano). E sabendo o tipo de pokémon que deve usar, precisa saber quais os pokémons precisa usar.
+A nossa persona é uma *jogadora de Pokémon Go* chamada Maggie Greene, tem 27 anos, solteira e adora animes, jogos e seriados. Ela trabalha como projetista de móveis planejados. Desde pequena gostava muito de assistir Pokémon, e quando soube que poderia sair caçando pokémons, ela adorou a idéia e se apaixonou pelo jogo. Além de que ela possui um Nintendo Switch, e descobriu que pode transferir seus pokémons do Pokémon Go para o Nintendo Switch. Agora o problema que ela está tendo é saber qual pokémon usar em uma batalha de Raid, pois precisa saber qual a fraqueza do seu oponente (contra qual tipo ele sofre mais dano). E sabendo o tipo de pokémon que deve usar, precisa saber quais os pokémons precisa usar.
 
 2. Usuários
 
-O nosso público-alvo são jogadores de *Pokémon Go* assim como a Maggie, que *lutam em ginásios ou Raids* e precisam saber qual pokémon usar na batalha.
+O nosso público-alvo são jogadores de Pokémon Go assim como a Maggie, que lutam em ginásios ou Raids e precisam saber qual pokémon usar na batalha.
 Chegamos nesse tipo de persona, pois investigamos quais eram as reais necessidades dos jogadores, e descobrimos que existem algumas dificuldades em saber qual pokémon usar contra o oponente. Essa investigação ocorreu por meio de entrevistas com jogares reais.
 
 3. Como funciona o Web Site
@@ -39,7 +43,7 @@ Chegamos nesse tipo de persona, pois investigamos quais eram as reais necessidad
 * Na primeira seção (que está lado esquerdo) você pode escolher um pokémon por nome e visualizar todos os dados dele.
 * Na segunda seção (que está no centro) você pode escolher um tipo de pokémon e vizualizar todos os pokémons desse tipo. Você pode ordená-los de A à Z, de Z à A ou por Número da Pokédex. 
 * Na terceira seção (que está do lado direito) você pode filtrar os pokémons pela sua fraqueza, por exemplo: Filtrar todos os pokémons que são fracos contra pokémons de água. E dentro dessa seção você também pode ordená-los.
-* Como adicional, você também pode vizualizar no botão *Mais informações* um gráfico que mostra o total de pokémon para cada tipo, e ver qual tipo tem mais pokémons.
+* Como adicional, você também pode vizualizar no botão Mais informações um gráfico que mostra o total de pokémon para cada tipo, e ver qual tipo tem mais pokémons.
 
 4. Benefícios de utilizar o site
 
@@ -62,9 +66,13 @@ Apos efetuarmos algumas alteracões para melhoria da interface, criamos o protot
 
 2. Teste de Usabilidade
 
-Com o teste de usabilidade pudemos perceber que as cores não estavam correspondendo as espectativas dos usuários, então tivemos que remodelar as cores. E também descobrimos que seria interessante colocar o total de pokémons apresentados nas telas de tipos e de fraquezas. Mas felizmente não precisaram de grandes alterações, pois planejamos bastante em como deixar o mais fácil possível de vizualizar os dados.
+Com o teste de usabilidade pudemos perceber que as cores não estavam correspondendo as espectativas dos usuários, então tivemos que remodelar as cores. E também descobrimos que seria interessante colocar o total de pokémons apresentados nas telas de tipos e de fraquezas. 
+Outra coisa que os usuários reclamaram foi o botão de voltar que estava no fim da página, e precisava ficar rolando até o final para apertar voltar, então implementamos um botão no inicio da página também. E os usuários reclamaram sobre o site não caber direito no celular, afinal o jogo Pokémon Go é para celular, então tivemos que arrumar para conseguir enxergar na tela do celular. Mas felizmente não precisaram de grandes alterações, pois planejamos bastante em como deixar o mais fácil possível de vizualizar os dados.
 
+3. Planejamento
 
+Usamos a ferramenta Trello para poder organizar as tarefas e saber em que passo que estávamos e o que faltava fazer. Essa ferramenta ajudou a organizar o tempo e as prioridades.
+[Link do Trello](https://trello.com/b/vXwPnTK7/data-lovers)
 
 #### Curiosidades sobre o jogo
 Batalhas em Pokémon GO acontecem nos Ginásios. Não importa se você está tentando conquistar um ginásio inimigo ou apenas treinando em um ginásio aliado, ou até mesmo lutando em uma Raid. Você precisa saber do básico:
