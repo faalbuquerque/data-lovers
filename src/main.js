@@ -45,13 +45,9 @@ let selectedPokemon = () => {
     let pokemonId = namesPokemon.options[namesPokemon.selectedIndex].value;
     let result = POKEMON["pokemon"].filter(pokemon => pokemon.id == pokemonId);
     let nextEvolution = result.map((pokemon) => {return pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : "Sem evolução"});
-    let multipliers = result.map((pokemon) => {return pokemon["multipliers"]===null ? "Sem multiplicadores" : pokemon["multipliers"][0] + " e " + pokemon["multipliers"][1] });
+    let multipliers = result.map((pokemon) => {return pokemon["multipliers"]===null ? "Sem multiplicadores" : pokemon["multipliers"]});
     let candys = result.map((pokemon) => {return pokemon["candy"]==="None" ? "Não possui candys" : pokemon["candy"]});
-
-    //let candysCount = result.map((pokemon) => {return pokemon["candy"]==="None" ? "Não possui candys" : pokemon["candy"][0]});
-
-   
-
+    let candysCount = result.map((pokemon) => {return pokemon["candy_count"]===undefined ? "0" : pokemon["candy_count"]});
 
     showPokemon.innerHTML= ""
     showPokemon.innerHTML+= `
@@ -64,7 +60,7 @@ let selectedPokemon = () => {
             <p>Altura: ${pokemon.height}</p>
             <p>Peso: ${pokemon.weight}</p>
             <p>Candy: ${candys}</p>
-            <p>Quantidade de Candys: ${pokemon.candy_count}</p>
+            <p>Quantidade de Candys: ${candysCount}</p>
             <p>Ovo: ${pokemon.egg}</p>
             <p>Chance de Spawn: ${pokemon.spawn_chance}</p>
             <p>AVG Spawns: ${pokemon.avg_spawns}</p>
