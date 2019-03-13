@@ -75,7 +75,7 @@ let selectedPokemon = () => {
         <div class="pokemon-names">
             <img class="poke-photo" src="${pokemon.img}">
             <h3 class="poke-name">${pokemon.name}</h3>
-            <p><strong>Nº Pokedex: #</strong>${pokemon.num}</p>
+            <p>Nº Pokedex: #${pokemon.num}</p>
             <p>Tipo: ${pokemon.type.join(", ")}</p>
             <p>Altura: ${pokemon.height}</p>
             <p>Peso: ${pokemon.weight}</p>
