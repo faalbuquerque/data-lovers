@@ -19,7 +19,7 @@ window.onload = () => {
         showTypePokemon(selectType);
         showTypePokemon(selectWeaknesses);
         hideScreenNone();
-        grafico();
+        graphic();
     });
 }
 
@@ -80,7 +80,7 @@ let selectedPokemon = () => {
             <p>Altura: ${pokemon.height}</p>
             <p>Peso: ${pokemon.weight}</p>
             <p>Tipo de Candy: ${candys}</p>    
-            ${pokemon.candy_count ? "<p>Quantidade de Candys:" + pokemon.candy_count + "</p>" : ""}
+            ${pokemon.candy_count ? "<p>Quantidade de Candys: " + pokemon.candy_count + "</p>" : ""}
             <p>Ovo: ${egg}</p>
             <p>Chance de Spawn: ${pokemon.spawn_chance}</p>
             <p>AVG Spawns: ${pokemon.avg_spawns}</p>
@@ -92,7 +92,6 @@ let selectedPokemon = () => {
         `).join("")}
     `
 }
-
 
 let showTypePokemon = (category) => {
     let arrayType = [];
@@ -220,7 +219,8 @@ let orderBy = (choiceOrder, section) => {
 
 let showPokemon = (pokemon, tagById) => {
     let nextEvolution = pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : "Sem evolução";
-    
+    let multipliers = pokemon["multipliers"]===null ? "Sem multiplicadores" : pokemon["multipliers"].join(" e ");
+    let candys = pokemon["candy"]==="None" ? "Não possui candys" : pokemon["candy"];
 
     tagById.innerHTML += `
                 <section class="pokemons-type">
@@ -232,11 +232,11 @@ let showPokemon = (pokemon, tagById) => {
                         <div class="text-type">
                             <p> Nº Pokedex: #${pokemon.num}</p>
                             <p class="poke-type"> Tipo: ${pokemon.type.join(", ")}</p>
-                            <p>Tipo de Candy: ${pokemon.candys}</p>    
-                            ${pokemon.candy_count ? "<p>Quantidade de Candys:" + pokemon.candy_count + "</p>" : ""}
+                            <p>Tipo de Candy: ${candys}</p>    
+                            ${pokemon.candy_count ? "<p>Quantidade de Candys: " + pokemon.candy_count + "</p>" : ""}
                             <p>Ovo: ${pokemon.egg}</p>
                             <p>Chance de Spawn: ${pokemon.spawn_chance}</p>
-                            <p>Multiplicadores: ${pokemon.multipliers}</p>
+                            <p>Multiplicadores: ${multipliers}</p>
                             <p>Fraquezas: ${pokemon.weaknesses.join(", ")}</p>
                             <p>Próxima evolução: ${nextEvolution} </p>
                         </div>
@@ -333,7 +333,7 @@ let hideScreenAll = () => {
     document.querySelector("#btn-initial").style.display = "block";
 }
 
-function grafico(){
+function graphic(){
 const types = [];
 
 getPokemons().map(pokemon => pokemon.type).map(item =>
