@@ -23,8 +23,10 @@ Essa página foi desenvolvida em JavaScript, HTML e Css. Não foi utilizado fram
 
 ## Autoria
 O projeto foi desenvolvido pela dupla **Fabiane Albuquerque** e **Vanessa Yoshida**.
-[Link do GitPages](https://faalbuquerque.github.io/data-lovers/)
-[Link do GitPages](https://vanessayoshida.github.io/data-lovers/)
+
+[Link do GitPages Fabiane Albuquerque](https://faalbuquerque.github.io/data-lovers/)
+
+[Link do GitPages Vanessa Yoshida](https://vanessayoshida.github.io/data-lovers/)
 
 
 # Definição do Produto
