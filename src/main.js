@@ -1,8 +1,8 @@
 
 window.onload = () => {
-    var url = 'https://raw.githubusercontent.com/VanessaYoshida/data-lovers/master/src/data/pokemon/pokemon.json';
+    let url = 'https://raw.githubusercontent.com/VanessaYoshida/data-lovers/master/src/data/pokemon/pokemon.json';
 
-    var pokemonsComFetch;
+    let pokemonsComFetch;
 
     fetch(url, {
         method: 'GET'
@@ -335,7 +335,7 @@ let hideScreenAll = () => {
     document.querySelector("#btn-initial").style.display = "block";
 }
 
-function graphic(){
+let graphic = () => {
 const types = [];
 
 getPokemons().map(pokemon => pokemon.type).map(item =>
