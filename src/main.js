@@ -221,6 +221,8 @@ let showPokemon = (pokemon, tagById) => {
     let nextEvolution = pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : "Sem evolução";
     let multipliers = pokemon["multipliers"]===null ? "Sem multiplicadores" : pokemon["multipliers"].join(" e ");
     let candys = pokemon["candy"]==="None" ? "Não possui candys" : pokemon["candy"];
+    let egg = pokemon["egg"]==="Not in Eggs" ? "Não aparece em ovos" : pokemon["egg"];
+
 
     tagById.innerHTML += `
                 <section class="pokemons-type">
@@ -234,7 +236,7 @@ let showPokemon = (pokemon, tagById) => {
                             <p class="poke-type"> Tipo: ${pokemon.type.join(", ")}</p>
                             <p>Tipo de Candy: ${candys}</p>    
                             ${pokemon.candy_count ? "<p>Quantidade de Candys: " + pokemon.candy_count + "</p>" : ""}
-                            <p>Ovo: ${pokemon.egg}</p>
+                            <p>Ovo: ${egg}</p>
                             <p>Chance de Spawn: ${pokemon.spawn_chance}</p>
                             <p>Multiplicadores: ${multipliers}</p>
                             <p>Fraquezas: ${pokemon.weaknesses.join(", ")}</p>
