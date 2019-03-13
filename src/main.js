@@ -1,9 +1,29 @@
 window.onload = () => {
-    showNamesPokemon();
-    selectedPokemon();
-    showTypePokemon(selectType);
-    showTypePokemon(selectWeaknesses);
-    hideScreenNone();
+    var url = 'https://raw.githubusercontent.com/VanessaYoshida/data-lovers/master/src/data/pokemon/pokemon.json';
+
+    var pokemonsComFetch;
+
+    fetch(url, {
+        method: 'GET'
+    })
+    .then(function(res) {
+        if(res.ok){
+            return res.json();    
+        }
+    })
+    .then( (res) => {
+        window.pokemonsComFetch = res;
+        showNamesPokemon();
+        selectedPokemon();
+        showTypePokemon(selectType);
+        showTypePokemon(selectWeaknesses);
+        hideScreenNone();
+        graphic();
+    });
+}
+
+function getPokemons(){
+    return pokemonsComFetch.pokemon;
 }
 
 let namesPokemon = document.querySelector("#names-pokemon");
@@ -45,9 +65,14 @@ let selectedPokemon = () => {
     let pokemonId = namesPokemon.options[namesPokemon.selectedIndex].value;
     let result = POKEMON["pokemon"].filter(pokemon => pokemon.id == pokemonId);
     let nextEvolution = result.map((pokemon) => {return pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : "Sem evolução"});
-    let multipliers = result.map((pokemon) => {return pokemon["multipliers"]===null ? "Sem multiplicadores" : pokemon["multipliers"]});
+
+    //let multipliers = result.map((pokemon) => {return pokemon["multipliers"]===null ? "Sem multiplicadores" : pokemon["multipliers"]});
+    let multipliers = result.map((pokemon) => {return pokemon["multipliers"]===null ? "Sem multiplicadores" : pokemon["multipliers"].join(" e ")});
+
     let candys = result.map((pokemon) => {return pokemon["candy"]==="None" ? "Não possui candys" : pokemon["candy"]});
-    let candysCount = result.map((pokemon) => {return pokemon["candy_count"]===undefined ? "0" : pokemon["candy_count"]});
+    let egg = result.map((pokemon) => {return pokemon["egg"]==="Not in Eggs" ? "Não aparece em ovos" : pokemon["egg"]});
+
+    //let candysCount = result.map((pokemon) => {return pokemon["candy_count"]===undefined ? "0" : pokemon["candy_count"]});
 
     showPokemon.innerHTML= ""
     showPokemon.innerHTML+= `
@@ -55,34 +80,32 @@ let selectedPokemon = () => {
         <div class="pokemon-names">
             <img class="poke-photo" src="${pokemon.img}">
             <h3 class="poke-name">${pokemon.name}</h3>
-            <p>Nº Pokedex: #${pokemon.num}</p>
-            <p>Tipo: ${pokemon.type}</p>
-            <p>Altura: ${pokemon.height}</p>
-            <p>Peso: ${pokemon.weight}</p>
-            <p>Candy: ${candys}</p>
-            <p>Quantidade de Candys: ${candysCount}</p>
-            <p>Ovo: ${pokemon.egg}</p>
-            <p>Chance de Spawn: ${pokemon.spawn_chance}</p>
-            <p>AVG Spawns: ${pokemon.avg_spawns}</p>
-            <p>Encontrar jogadores: ${pokemon.spawn_time}</p>
-            <p>Multiplicadores: ${multipliers}</p>
-            <p>Fraquezas: ${pokemon.weaknesses.join(", ")}</p>
-            <p>Proxima evolucao: ${nextEvolution} </p>
+            <p><b>Nº Pokedex: </b>#${pokemon.num}</p>
+            <p><b>Tipo:</b> ${pokemon.type}</p>
+            <p><b>Altura: </b>${pokemon.height}</p>
+            <p><b>Peso:</b> ${pokemon.weight}</p>
+            <p><b>Tipo de Candy:</b> ${candys}</p>  
+            ${pokemon.candy_count ? "<p><b>Quantidade de Candys: </b>" + pokemon.candy_count + "</p>" : ""}
+            <p><b>Ovo:</b> ${egg}</b>
+            <p><b>Chance de Spawn:</b> ${pokemon.spawn_chance}</p>
+            <p><b>AVG Spawns:</b> ${pokemon.avg_spawns}</p>
+            <p><b>Encontrar jogadores:</b> ${pokemon.spawn_time}</p>
+            <p><b>Multiplicadores:</b> ${multipliers}</p>
+            <p><b>Fraquezas:</b> ${pokemon.weaknesses.join(", ")}</p>
+            <p><b>Proxima evolucao:</b> ${nextEvolution} </p>
         </div>
         `).join("")}
     `
 }
 
 let arrayType = [];
-
-POKEMON.pokemon.map((pokemon) => { pokemon.type.map((type) => {
-        if(!arrayType.includes(type)){
-            arrayType.push(type);
-        }
-    })
-})
-
 let showTypePokemon = (category) => {
+    getPokemons().map((pokemon) => { pokemon.type.map((type) => {
+            if(!arrayType.includes(type)){
+                arrayType.push(type);
+            }
+        })
+    })
     for(i in arrayType){
         category.innerHTML += `
             <option value="${arrayType[i]}" class="list-pokemon">
@@ -201,6 +224,9 @@ let orderBy = (choiceOrder, section) => {
 
 let showPokemon = (pokemon, tagById) => {
     let nextEvolution = pokemon["next_evolution"] ? pokemon["next_evolution"][0].name : "Sem evolução";
+    let multipliers = pokemon["multipliers"]===null ? "Sem multiplicadores" : pokemon["multipliers"].join(" e ");
+    let candys = pokemon["candy"]==="None" ? "Não possui candys" : pokemon["candy"];
+    let egg = pokemon["egg"]==="Not in Eggs" ? "Não aparece em ovos" : pokemon["egg"];
 
     tagById.innerHTML += `
                 <section class="pokemons-type">
@@ -210,12 +236,15 @@ let showPokemon = (pokemon, tagById) => {
                             <h3 class="poke-name">${pokemon.name}</h3>
                         </div>
                         <div class="text-type">
-                            <p> Nº Pokedex: #${pokemon.num}</p>
-                            <p class="poke-type"> Tipo: ${pokemon.type.join(", ")}</p>
-                            <p> Qtd de Candys para evoluir: ${pokemon.candy_count}</p>
-                            <p>Chance de Spawn: ${pokemon.spawn_chance}</p>
-                            <p> Fraquezas: ${pokemon.weaknesses.join(" , ")}</p>
-                            <p> Próxima(s) Evolução(ões): ${nextEvolution}</p>
+                            <p><b>Nº Pokedex:</b> #${pokemon.num}</p>
+                            <p class="poke-type"><b> Tipo:</b> ${pokemon.type.join(", ")}</p>
+                            <p><b>Tipo de Candy:</b> ${candys}</p>    
+                            ${pokemon.candy_count ? "<p>Quantidade de Candys: " + pokemon.candy_count + "</p>" : ""}
+                            <p><b>Ovo:</b> ${egg}</p>
+                            <p><b>Chance de Spawn:</b> ${pokemon.spawn_chance}</p>
+                            <p><b>Multiplicadores:</b> ${multipliers}</p>
+                            <p><b>Fraquezas:</b> ${pokemon.weaknesses.join(", ")}</p>
+                            <p><b>Próxima evolução:</b> ${nextEvolution} </p>
                         </div>
                     </div>
                 </section>
@@ -295,6 +324,26 @@ let hideScreenWeaknesses = () => {
     document.querySelector("#label-weaknesses").style.display = "block";
 }
 
+//tentando fazer o click na imagem aparecer e sumir o conteudo
+
+/*
+function showText(msg) {
+    let text = document.querySelector(".text-type");
+    let styles = window.getComputedStyle ? getComputedStyle(text, null) : text.currentStyle;
+
+    let visibility = styles.display;
+    
+      if( visibility == 'none' ) { 
+        text.style.display = 'block';
+        text.innerHTML = "<span>" + msg + "<span>";
+      } else { 
+        text.style.display = 'none';
+        text.innerHTML = " ";
+      }
+  }
+*/
+
+
 let curiosities = document.querySelector(".btn-curiosities");
 curiosities.addEventListener("click", () => {
     hideScreenAll();
@@ -311,6 +360,8 @@ let hideScreenAll = () => {
 }
 
 
+const typesCount = {};
+function graphic(){
 const types = [];
 
 POKEMON.pokemon.map(pokemon => pokemon.type).map(item =>
@@ -318,7 +369,6 @@ POKEMON.pokemon.map(pokemon => pokemon.type).map(item =>
       types.push(type)
     }))
 
-const typesCount = {};
 
 for (var i = 0; i < types.length; ++i) {
     if (!typesCount[types[i]]) {
@@ -373,7 +423,7 @@ Highcharts.chart('container', {
       data: countTypes
     }]
   });
-
+}
 
 /*teste
 

@@ -127,6 +127,11 @@ body{
     color: #2f6bb4;
     background-color: transparent;
     font-size: 18px;
+    font-weight: 300;
+}
+
+.pokemon-names b{
+    background-color: transparent;  
 }
 
 .poke-name{
@@ -162,6 +167,16 @@ body{
     animation-duration: 1.5s;
     animation-name: opacity;
 }
+
+.pokemon-type p{
+    font-weight: 300;
+}
+
+.pokemon-type b{
+    background-color: transparent;
+}
+
+
 
 @keyframes opacity {
     from {
@@ -282,18 +297,33 @@ body{
     color: #ffcb08;
 }
 
+
+
+
+
+
+
+
 @media screen and (max-width: 700px) {
     .container{
         display: block;
-        margin-top: 5%;
+        margin-top: 6%;
         width: 94.5%; 
         font-size: 15px;
     }
 
+    .background-top{
+        margin-top: 1%;
+    }
+
     .btn-curiosities-style{
-        width: 50%;
-        margin-top: 2%;
-        font-size: 6%;
+        background: none;
+        margin-top: 3%;
+        padding: 0;
+        font-size: 80%;
+        color: white;
+        border: 3px solid transparent;
+        border-bottom-color: #84caf6;
     }
     
     .pokemon-names{
@@ -317,7 +347,6 @@ body{
         font-size: 8px;
         width: 100%;
     }
-
 }
 
 
