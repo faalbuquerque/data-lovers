@@ -4,14 +4,14 @@
 ## Índice
 
 * [Resumo do Projeto](#Resumo-do-Projeto)
-* [Linguagem de programação](#Linguagem-de-programacao)
+* [Linguagem de programação](#Linguagem-de-programação)
 * [Autoria](#Autoria)
-* [Definição do Produto](#Definicao-do-produto)
-* [Desenho da interface do Usuário](#Desenho-da-interface-do-usuario)
-* [Protótipo](#Prototipo)
+* [Definição do Produto](#Definição-do-produto)
+* [Desenho da interface do Usuário](#Desenho-da-interface-do-Usuário)
+* [Protótipo](#Protótipo)
 * [Teste de Usabilidade](#Teste-de-usabilidade)
 * [Curiosidades sobre o jogo](#Curiosidades-sobre-o-jogo)
-* [Escolhendo seu Pokémon](#Escolhendo-seu-pokemon)
+* [Escolhendo seu Pokémon](#Escolhendo-seu-Pokémon)
 
 
 # Resumo do Projeto
@@ -23,6 +23,9 @@ Essa página foi desenvolvida em JavaScript, HTML e Css. Não foi utilizado fram
 
 ## Autoria
 O projeto foi desenvolvido pela dupla **Fabiane Albuquerque** e **Vanessa Yoshida**.
+[Link do GitPages](https://faalbuquerque.github.io/data-lovers/)
+[Link do GitPages](https://vanessayoshida.github.io/data-lovers/)
+
 
 # Definição do Produto
 1. Persona
@@ -62,9 +65,13 @@ Apos efetuarmos algumas alteracões para melhoria da interface, criamos o protot
 
 2. Teste de Usabilidade
 
-Com o teste de usabilidade pudemos perceber que as cores não estavam correspondendo as espectativas dos usuários, então tivemos que remodelar as cores. E também descobrimos que seria interessante colocar o total de pokémons apresentados nas telas de tipos e de fraquezas. Mas felizmente não precisaram de grandes alterações, pois planejamos bastante em como deixar o mais fácil possível de vizualizar os dados.
+Com o teste de usabilidade pudemos perceber que as cores não estavam correspondendo as espectativas dos usuários, então tivemos que remodelar as cores. E também descobrimos que seria interessante colocar o total de pokémons apresentados nas telas de tipos e de fraquezas. 
+Outra coisa que os usuários reclamaram foi o botão de voltar que estava no fim da página, e precisava ficar rolando até o final para apertar voltar, então implementamos um botão no inicio da página também. E os usuários reclamaram sobre o site não caber direito no celular, afinal o jogo Pokémon Go é para celular, então tivemos que arrumar para conseguir enxergar na tela do celular. Mas felizmente não precisaram de grandes alterações, pois planejamos bastante em como deixar o mais fácil possível de vizualizar os dados.
 
+3. Planejamento
 
+Usamos a ferramenta Trello para poder organizar as tarefas e saber em que passo que estávamos e o que faltava fazer. Essa ferramenta ajudou a organizar o tempo e as prioridades.
+[Link do Trello](https://trello.com/b/vXwPnTK7/data-lovers)
 
 #### Curiosidades sobre o jogo
 Batalhas em Pokémon GO acontecem nos Ginásios. Não importa se você está tentando conquistar um ginásio inimigo ou apenas treinando em um ginásio aliado, ou até mesmo lutando em uma Raid. Você precisa saber do básico:
